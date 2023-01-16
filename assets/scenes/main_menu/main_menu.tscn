@@ -1,0 +1,155 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0oamubtydhgi"]
+
+[ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_1jn8e"]
+[ext_resource type="PackedScene" uid="uid://db87qejsqwnen" path="res://assets/scenes/shader_precache.scn" id="2_gqcpl"]
+[ext_resource type="Shader" path="res://assets/shaders/colorize.gdshader" id="2_kgrli"]
+[ext_resource type="Theme" uid="uid://8ixrlafnx7g8" path="res://assets/themes/default_theme.tres" id="2_vxygr"]
+[ext_resource type="PackedScene" uid="uid://v6ydoi2psips" path="res://assets/scenes/ui/UnderlineButton.tscn" id="3_7648y"]
+[ext_resource type="PackedScene" uid="uid://bbekgk1d5mp7w" path="res://assets/scenes/main_menu/main_menu_tomb.tscn" id="3_uc5n7"]
+[ext_resource type="Script" path="res://assets/scripts/ResponsiveViewportContainer.gd" id="4_adv8w"]
+[ext_resource type="ArrayMesh" uid="uid://ydhroogpwr0j" path="res://assets/meshes/tomb/gate.res" id="6_8w5k3"]
+[ext_resource type="PackedScene" uid="uid://bqq1yas8lc425" path="res://assets/scenes/main_menu/options_full.tscn" id="6_guq1w"]
+[ext_resource type="FontFile" uid="uid://tdtaadjb7q74" path="res://assets/fonts/AveriaSerifLibre-Bold.ttf" id="7_faw6x"]
+[ext_resource type="AudioStream" uid="uid://b5ypm3xk8mqao" path="res://assets/music/main_menu_loop.ogg" id="8_x07u8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wls8"]
+shader = ExtResource("2_kgrli")
+shader_parameter/colors = PackedColorArray(0.0235294, 0, 0.0509804, 1, 0.137255, 0.215686, 0.321569, 1, 0.282353, 0.47451, 0.639216, 1, 0.376471, 0.643137, 0.709804, 1, 0.678431, 0.858824, 0.792157, 1, 0.894118, 0.894118, 0.894118, 1)
+shader_parameter/exponent = 0.86
+shader_parameter/radius = 1.0
+shader_parameter/bias = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ntnk"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1jn8e")
+blue_colors = [Color(0.0235294, 0, 0.0509804, 1), Color(0.137255, 0.215686, 0.321569, 1), Color(0.282353, 0.47451, 0.639216, 1), Color(0.376471, 0.643137, 0.709804, 1), Color(0.678431, 0.858824, 0.792157, 1), Color(1, 1, 1, 1)]
+red_colors = [Color(0.0235294, 0, 0.0509804, 1), Color(0.239216, 0.027451, 0.0470588, 1), Color(0.380392, 0.0392157, 0.0392157, 1), Color(0.760784, 0.137255, 0.137255, 1), Color(0.921569, 0.552941, 0.458824, 1), Color(1, 1, 1, 1)]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+offset_right = 19.0
+offset_bottom = 10.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(19, 10)
+render_target_update_mode = 4
+
+[node name="ShaderPrecache" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_gqcpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_5wls8")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+script = ExtResource("4_adv8w")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewportContainer/SubViewport"]
+offset_left = 1920.0
+offset_right = 3840.0
+offset_bottom = 1080.0
+scale = Vector2(-1, 1)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewport/SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="main_menu_tomb" parent="SubViewportContainer/SubViewport/SubViewportContainer/SubViewport" instance=ExtResource("3_uc5n7")]
+
+[node name="Gate" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/SubViewportContainer/SubViewport"]
+transform = Transform3D(3.57628e-07, 1, 0, -1, 3.57628e-07, 0, 0, 0, 1, -1.0808, 2.80243, -12.0544)
+mesh = ExtResource("6_8w5k3")
+skeleton = NodePath("")
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 749.0
+offset_bottom = 311.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("7_faw6x")
+theme_override_font_sizes/font_size = 96
+text = "ENTOMBED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport"]
+offset_left = 270.0
+offset_top = 400.0
+offset_right = 1051.0
+offset_bottom = 626.0
+theme = ExtResource("2_vxygr")
+theme_override_constants/separation = 20
+
+[node name="Play" parent="SubViewportContainer/SubViewport/VBoxContainer" instance=ExtResource("3_7648y")]
+clip_contents = false
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+theme_override_font_sizes/normal_font_size = 54
+text = "PLAY"
+visible_characters_behavior = 1
+
+[node name="Options" parent="SubViewportContainer/SubViewport/VBoxContainer" instance=ExtResource("3_7648y")]
+clip_contents = false
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Play")
+theme_override_font_sizes/normal_font_size = 54
+text = "OPTIONS"
+
+[node name="Quit" parent="SubViewportContainer/SubViewport/VBoxContainer" instance=ExtResource("3_7648y")]
+clip_contents = false
+focus_neighbor_top = NodePath("../Options")
+focus_previous = NodePath("../Options")
+theme_override_font_sizes/normal_font_size = 54
+text = "QUIT"
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ntnk")
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewportContainer/SubViewport/PanelContainer"]
+
+[node name="OptionsFull" parent="SubViewportContainer/SubViewport/PanelContainer/CenterContainer" instance=ExtResource("6_guq1w")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ntnk")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+
+[node name="OptionsFull" parent="PanelContainer/CenterContainer" instance=ExtResource("6_guq1w")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x07u8")
+volume_db = -80.0
+autoplay = true
+
+[connection signal="clicked" from="SubViewportContainer/SubViewport/VBoxContainer/Play" to="." method="_on_play_clicked"]
+[connection signal="clicked" from="SubViewportContainer/SubViewport/VBoxContainer/Options" to="." method="_on_options_clicked"]
+[connection signal="clicked" from="SubViewportContainer/SubViewport/VBoxContainer/Quit" to="." method="_on_quit_clicked"]
+[connection signal="close" from="SubViewportContainer/SubViewport/PanelContainer/CenterContainer/OptionsFull" to="." method="_on_options_full_close"]

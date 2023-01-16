@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cy5udpbw2y0gj"]
+
+[ext_resource type="Texture2D" uid="uid://csxp0pegynkrt" path="res://assets/textures/tomb/boss_door_normal.png" id="1_rdn6f"]
+
+[resource]
+albedo_color = Color(0.231373, 0.203922, 0.184314, 1)
+metallic = 0.73
+roughness = 0.79
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("1_rdn6f")

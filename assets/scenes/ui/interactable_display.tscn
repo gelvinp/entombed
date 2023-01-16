@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd5n58nv665t0"]
+
+[ext_resource type="Script" path="res://assets/scripts/ui/interactable_display.gd" id="1_lwbr4"]
+[ext_resource type="Theme" uid="uid://8ixrlafnx7g8" path="res://assets/themes/default_theme.tres" id="1_m3o03"]
+
+[node name="InteractableDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwbr4")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -131.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_m3o03")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guidance" type="RichTextLabel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme = ExtResource("1_m3o03")
+bbcode_enabled = true
+fit_content_height = true

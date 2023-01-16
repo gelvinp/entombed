@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnv3478wpyhlg"]
+
+[ext_resource type="PackedScene" uid="uid://du5642fw18xf5" path="res://assets/meshes/tomb/main_chamber_extras.scn" id="1_d7sb1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kp424"]
+height = 17.0
+radius = 1.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8145d"]
+points = PackedVector3Array(-12, 0, -12, -12, 0.1, -12, 12, 0, -12, -12, 0, 12, -12, 0.1, 12, 12, 0.1, -12, 12, 0, 12, 12, 0.1, 12)
+
+[node name="main_chamber_extras" type="StaticBody3D"]
+collision_layer = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8.46144, 4)
+shape = SubResource("CylinderShape3D_kp424")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8.461, -4)
+shape = SubResource("CylinderShape3D_kp424")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8.461, 4)
+shape = SubResource("CylinderShape3D_kp424")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8.461, -4)
+shape = SubResource("CylinderShape3D_kp424")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9, 0)
+shape = SubResource("ConvexPolygonShape3D_8145d")
+
+[node name="main_chamber_extras" parent="." instance=ExtResource("1_d7sb1")]

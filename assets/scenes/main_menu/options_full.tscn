@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqq1yas8lc425"]
+
+[ext_resource type="Theme" uid="uid://8ixrlafnx7g8" path="res://assets/themes/default_theme.tres" id="1_dnjr0"]
+[ext_resource type="PackedScene" uid="uid://v6ydoi2psips" path="res://assets/scenes/ui/UnderlineButton.tscn" id="2_8klhs"]
+[ext_resource type="Script" path="res://assets/scripts/main_menu/options_full.gd" id="2_t2670"]
+[ext_resource type="Script" path="res://assets/scripts/main_menu/ui_aware_slider.gd" id="3_obkwp"]
+
+[node name="OptionsFull" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dnjr0")
+script = ExtResource("2_t2670")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -72.5
+offset_right = 201.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 505.0
+offset_bottom = 202.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="OptionsForm" type="GridContainer" parent="PanelContainer/MarginContainer"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 477.0
+offset_bottom = 174.0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/OptionsForm"]
+visible = false
+offset_right = 155.0
+offset_bottom = 31.0
+text = "RESOLUTION"
+horizontal_alignment = 2
+
+[node name="Resolution" type="OptionButton" parent="PanelContainer/MarginContainer/OptionsForm"]
+visible = false
+offset_left = 185.0
+offset_right = 341.0
+offset_bottom = 44.0
+size_flags_vertical = 4
+item_count = 4
+selected = 0
+popup/item_0/text = "1280 x 720"
+popup/item_0/id = 0
+popup/item_1/text = "1366 x 768"
+popup/item_1/id = 1
+popup/item_2/text = "1600 x 900"
+popup/item_2/id = 2
+popup/item_3/text = "1920 x 1080"
+popup/item_3/id = 3
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/OptionsForm"]
+visible = false
+offset_right = 160.0
+offset_bottom = 31.0
+text = "FULL SCREEN"
+horizontal_alignment = 2
+
+[node name="Fullscreen" type="CheckBox" parent="PanelContainer/MarginContainer/OptionsForm"]
+visible = false
+texture_filter = 1
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/OptionsForm"]
+offset_right = 223.0
+offset_bottom = 31.0
+text = "VOLUME"
+horizontal_alignment = 2
+
+[node name="Volume" type="HSlider" parent="PanelContainer/MarginContainer/OptionsForm"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+offset_left = 253.0
+offset_top = 7.0
+offset_right = 453.0
+offset_bottom = 23.0
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../Look Sensitivity")
+focus_next = NodePath("../Look Sensitivity")
+max_value = 1.0
+step = 0.01
+scrollable = false
+script = ExtResource("3_obkwp")
+
+[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/OptionsForm"]
+offset_top = 61.0
+offset_right = 223.0
+offset_bottom = 92.0
+text = "LOOK SENSITIVITY"
+horizontal_alignment = 2
+
+[node name="Look Sensitivity" type="HSlider" parent="PanelContainer/MarginContainer/OptionsForm"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+offset_left = 253.0
+offset_top = 68.0
+offset_right = 453.0
+offset_bottom = 84.0
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Volume")
+focus_neighbor_bottom = NodePath("../RichTextLabel")
+focus_next = NodePath("../RichTextLabel")
+focus_previous = NodePath("../Volume")
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.01
+scrollable = false
+script = ExtResource("3_obkwp")
+
+[node name="RichTextLabel" parent="PanelContainer/MarginContainer/OptionsForm" instance=ExtResource("2_8klhs")]
+offset_left = 223.0
+offset_top = 122.0
+offset_right = 223.0
+offset_bottom = 150.0
+size_flags_horizontal = 8
+focus_neighbor_top = NodePath("../Volume")
+focus_previous = NodePath("../Volume")
+text = "Return"
+
+[connection signal="toggled" from="PanelContainer/MarginContainer/OptionsForm/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/OptionsForm/Volume" to="." method="_on_volume_drag_ended"]
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/OptionsForm/Look Sensitivity" to="." method="_on_look_sensitivity_drag_ended"]
+[connection signal="clicked" from="PanelContainer/MarginContainer/OptionsForm/RichTextLabel" to="." method="_on_rich_text_label_clicked"]

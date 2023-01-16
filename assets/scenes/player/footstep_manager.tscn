@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkd32cbq1ul86"]
+
+[ext_resource type="AudioStream" uid="uid://dm3rtyagjp55y" path="res://assets/sounds/footstep_right.wav" id="1_8j3dp"]
+[ext_resource type="Script" path="res://assets/scripts/player/footstep_manager.gd" id="1_jp1f8"]
+[ext_resource type="AudioStream" uid="uid://b0oemhobrg5sr" path="res://assets/sounds/footstep_left.wav" id="2_elf2i"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nopv0"]
+streams_count = 1
+playback_mode = 2
+random_pitch = 1.05
+random_volume_offset_db = 3.0
+stream_0/stream = ExtResource("2_elf2i")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mbgrj"]
+streams_count = 1
+playback_mode = 2
+random_pitch = 1.05
+random_volume_offset_db = 3.0
+stream_0/stream = ExtResource("1_8j3dp")
+stream_0/weight = 1.0
+
+[node name="FootstepManager" type="Node"]
+script = ExtResource("1_jp1f8")
+
+[node name="LeftFoot" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_nopv0")
+max_polyphony = 2
+bus = &"Reverb"
+
+[node name="RightFoot" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_mbgrj")
+volume_db = -7.184
+max_polyphony = 2
+bus = &"Reverb"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

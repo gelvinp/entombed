@@ -1,0 +1,115 @@
+[gd_scene load_steps=20 format=3 uid="uid://boufssdy4508s"]
+
+[ext_resource type="Script" path="res://assets/scripts/player/player.gd" id="1_ctj43"]
+[ext_resource type="PackedScene" uid="uid://cdoc18rloebfd" path="res://assets/scenes/player/sprint.tscn" id="2_6s4hi"]
+[ext_resource type="Resource" uid="uid://dmoinepm56w2p" path="res://assets/cutscenes/wait_for_gate.tres" id="2_44dpa"]
+[ext_resource type="PackedScene" uid="uid://cgdvqm48846l8" path="res://assets/scenes/torches/torch_light.tscn" id="3_f4cgi"]
+[ext_resource type="Resource" uid="uid://c63y7rfrxxg7s" path="res://assets/cutscenes/look_at_gate.tres" id="3_mcjtc"]
+[ext_resource type="Script" path="res://assets/scripts/player/states/player_controlled.gd" id="6_burhn"]
+[ext_resource type="Script" path="res://assets/scripts/player/states/cutscene.gd" id="7_mkt8r"]
+[ext_resource type="PackedScene" uid="uid://dkd32cbq1ul86" path="res://assets/scenes/player/footstep_manager.tscn" id="9_5b61h"]
+[ext_resource type="Script" path="res://assets/scripts/player/states/camera_fade.gd" id="9_t10wh"]
+[ext_resource type="Script" path="res://assets/scripts/player/states/reading.gd" id="10_oduog"]
+[ext_resource type="AudioStream" uid="uid://cp8v48lb27412" path="res://assets/sounds/torch_loop.ogg" id="10_ww0xr"]
+[ext_resource type="Script" path="res://assets/scripts/player/states/burning.gd" id="11_4vanr"]
+[ext_resource type="Script" path="res://assets/scripts/player/states/death.gd" id="12_v78ul"]
+[ext_resource type="AudioStream" uid="uid://brvytxv0qn3gq" path="res://assets/sounds/key_collect.wav" id="13_g8m0j"]
+[ext_resource type="AudioStream" uid="uid://cm1df08ls4v4o" path="res://assets/sounds/static.ogg" id="13_s8fnu"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8thpt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjsmx"]
+shading_mode = 0
+albedo_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m8vej"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uwwo"]
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 3
+collision_mask = 65
+floor_max_angle = 1.0472
+floor_snap_length = 0.2
+safe_margin = 0.01
+script = ExtResource("1_ctj43")
+look_at_gate_cutscene = [ExtResource("2_44dpa"), ExtResource("3_mcjtc")]
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+cull_mask = 1048569
+attributes = SubResource("CameraAttributesPractical_8thpt")
+current = true
+
+[node name="InteractRaycast" type="RayCast3D" parent="Neck"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="ShadowBox" type="CSGBox3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.821732)
+visible = false
+layers = 16
+transparency = 1.0
+cast_shadow = 0
+gi_mode = 0
+size = Vector3(2, 1.249, 0.287)
+material = SubResource("StandardMaterial3D_vjsmx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_m8vej")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5uwwo")
+
+[node name="Sprint" parent="." instance=ExtResource("2_6s4hi")]
+sprint_time = 3.0
+cooldown_time = 5.0
+
+[node name="TorchLight" parent="." instance=ExtResource("3_f4cgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28089, -0.452487)
+
+[node name="StateMachine" type="StateMachine" parent="."]
+initial_state = NodePath("PlayerControlled")
+
+[node name="PlayerControlled" type="State" parent="StateMachine"]
+script = ExtResource("6_burhn")
+
+[node name="Cutscene" type="State" parent="StateMachine"]
+script = ExtResource("7_mkt8r")
+
+[node name="CameraFade" type="State" parent="StateMachine"]
+script = ExtResource("9_t10wh")
+
+[node name="Reading" type="State" parent="StateMachine"]
+script = ExtResource("10_oduog")
+
+[node name="Burning" type="State" parent="StateMachine"]
+script = ExtResource("11_4vanr")
+
+[node name="Death" type="State" parent="StateMachine"]
+script = ExtResource("12_v78ul")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Death"]
+stream = ExtResource("13_s8fnu")
+volume_db = -80.0
+
+[node name="FootstepManager" parent="." instance=ExtResource("9_5b61h")]
+slowest_delay = 0.6
+fastest_delay = 0.2
+quietest_volume = 0.25
+loudest_volume = 0.4
+biggest_room = 0.4
+smallest_room = 0.05
+
+[node name="TorchLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ww0xr")
+autoplay = true
+
+[node name="KeyCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_g8m0j")

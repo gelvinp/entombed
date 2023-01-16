@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8e6ogyirdq05"]
+
+[ext_resource type="Script" path="res://assets/scripts/audio/AmbiancePlayer.gd" id="1_w7ty2"]
+
+[node name="AmbiancePlayer" type="Node"]
+script = ExtResource("1_w7ty2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

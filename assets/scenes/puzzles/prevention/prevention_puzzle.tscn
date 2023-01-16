@@ -1,0 +1,168 @@
+[gd_scene load_steps=22 format=3 uid="uid://b7dt7dr8opunx"]
+
+[ext_resource type="PackedScene" uid="uid://ci1a3ypbtae4s" path="res://assets/meshes/puzzles/prevention_puzzle.scn" id="1_to4gk"]
+[ext_resource type="Script" path="res://assets/scripts/puzzles/prevention/prevention_puzzle.gd" id="1_vnvqv"]
+[ext_resource type="PackedScene" uid="uid://d0pugxjcubi80" path="res://assets/scenes/puzzles/prevention/scissors.tscn" id="2_ig04e"]
+[ext_resource type="AudioStream" uid="uid://c23jdrqj51lcw" path="res://assets/sounds/cauldron_bubble.ogg" id="2_sd2sn"]
+[ext_resource type="PackedScene" uid="uid://bp8xdx158mb4y" path="res://assets/scenes/puzzles/prevention/prevention_ingredient.tscn" id="2_ygbk2"]
+[ext_resource type="AudioStream" uid="uid://m8gqupn6ygf7" path="res://assets/sounds/submerge.wav" id="3_hq2aa"]
+[ext_resource type="PackedScene" uid="uid://dshdgswtwtulx" path="res://assets/scenes/puzzles/prevention/needle.tscn" id="3_jx8g4"]
+[ext_resource type="PackedScene" uid="uid://ulnoq0dda2ui" path="res://assets/scenes/puzzles/prevention/stake.tscn" id="4_f1be4"]
+[ext_resource type="AudioStream" uid="uid://bfmxl3jfh57tr" path="res://assets/sounds/prevention_correct.wav" id="4_x5uiv"]
+[ext_resource type="PackedScene" uid="uid://do2cannbowhqe" path="res://assets/scenes/puzzles/prevention/cross.tscn" id="5_1cyg0"]
+[ext_resource type="AudioStream" uid="uid://d38srv7lnqy72" path="res://assets/sounds/prevention_reset.wav" id="5_u7a1t"]
+[ext_resource type="PackedScene" uid="uid://cumro87btdg1t" path="res://assets/scenes/puzzles/prevention/straw.tscn" id="6_pnxp2"]
+[ext_resource type="Texture2D" uid="uid://ekhx228uba84" path="res://assets/textures/particles/smoke_02.png" id="9_dr2d7"]
+[ext_resource type="PackedScene" uid="uid://c2l81vbxd834i" path="res://assets/scenes/puzzles/key.tscn" id="10_t6v7j"]
+
+[sub_resource type="Curve" id="Curve_1kt63"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.763, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ppbpo"]
+curve = SubResource("Curve_1kt63")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8nmel"]
+emission_shape = 2
+emission_sphere_radius = 0.3
+direction = Vector3(0, 0.7, 0)
+spread = 0.0
+gravity = Vector3(0, 0.35, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+radial_accel_max = 0.5
+radial_accel_curve = SubResource("CurveTexture_ppbpo")
+attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1tjk"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.25098, 0.788235, 0.431373, 1)
+albedo_texture = ExtResource("9_dr2d7")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xnmw5"]
+material = SubResource("StandardMaterial3D_n1tjk")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve3D" id="Curve3D_lsr2h"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, -2.432, 0, 0, 0.399, 0, 1, 2.059, 0, 0.668, 0, 0, 0, 0, 0, 0.309, 3.506),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fenbq"]
+size = Vector3(7.27136, 4.51179, 7.42956)
+
+[node name="PreventionPuzzle" type="Node3D"]
+script = ExtResource("1_vnvqv")
+
+[node name="Bubbling" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2546, 0.897201, 3.29877)
+stream = ExtResource("2_sd2sn")
+unit_size = 8.03
+autoplay = true
+max_distance = 10.0
+area_mask = 8
+
+[node name="Submerge" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2546, 0.897201, 3.29877)
+stream = ExtResource("3_hq2aa")
+unit_size = 6.56
+max_distance = 10.0
+max_polyphony = 2
+
+[node name="Correct" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2546, 0.897201, 3.29877)
+stream = ExtResource("4_x5uiv")
+attenuation_model = 3
+volume_db = -3.072
+unit_size = 6.56
+max_distance = 10.0
+
+[node name="Reset" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2546, 0.897201, 6.98527)
+stream = ExtResource("5_u7a1t")
+attenuation_model = 3
+volume_db = -5.517
+max_distance = 10.0
+
+[node name="prevention" parent="." instance=ExtResource("1_to4gk")]
+
+[node name="Ingredients" type="Node3D" parent="."]
+
+[node name="Iron Scissors" parent="Ingredients" instance=ExtResource("2_ygbk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2153, 1.20155, 5.07803)
+ingredient_type = 0
+
+[node name="scissors" parent="Ingredients/Iron Scissors" instance=ExtResource("2_ig04e")]
+
+[node name="Sewing Needle" parent="Ingredients" instance=ExtResource("2_ygbk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.215, 1.202, 5.965)
+ingredient_type = 1
+
+[node name="needle" parent="Ingredients/Sewing Needle" instance=ExtResource("3_jx8g4")]
+transform = Transform3D(0.78582, 0.341193, 0.515823, -0.131414, 0.907124, -0.399821, -0.604332, 0.246401, 0.757674, 0, 0.118696, 0)
+
+[node name="Wooden Stake" parent="Ingredients" instance=ExtResource("2_ygbk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.215, 1.202, 6.852)
+ingredient_type = 2
+
+[node name="stake" parent="Ingredients/Wooden Stake" instance=ExtResource("4_f1be4")]
+transform = Transform3D(0.418263, -0.571431, 0.706061, 0, -0.777322, -0.629103, 0.908326, 0.263131, -0.325125, 0, 0.107201, 0)
+
+[node name="Silver Cross" parent="Ingredients" instance=ExtResource("2_ygbk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.215, 1.202, 7.738)
+ingredient_type = 3
+
+[node name="cross" parent="Ingredients/Silver Cross" instance=ExtResource("5_1cyg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12354, 0)
+
+[node name="Bundle of Straw" parent="Ingredients" instance=ExtResource("2_ygbk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2153, 1.20155, 8.62543)
+ingredient_type = 4
+
+[node name="straw" parent="Ingredients/Bundle of Straw" instance=ExtResource("6_pnxp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157446, 0)
+
+[node name="Cauldron Start" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1385, 2.05085, 3.41169)
+
+[node name="Cauldron End" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1385, 1.06884, 3.41169)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1385, 1.26833, 3.41169)
+amount = 32
+preprocess = 1.0
+visibility_aabb = AABB(-1.50955, -0.818294, -0.963861, 3.01911, 2.91076, 1.95214)
+process_material = SubResource("ParticleProcessMaterial_8nmel")
+draw_pass_1 = SubResource("QuadMesh_xnmw5")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1385, 1.06884, 3.41169)
+curve = SubResource("Curve3D_lsr2h")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999992, 0, 0, 0, 0.999992, 0, 0, 0)
+rotation_mode = 0
+
+[node name="Key" parent="Path3D/PathFollow3D" instance=ExtResource("10_t6v7j")]
+transform = Transform3D(-4.35385e-08, 3.88571e-09, 1, 0.0888947, 0.996045, 0, -0.996045, 0.0888947, -4.37114e-08, 0, 0, 0)
+
+[node name="EncounterArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2238, 0, 5.87491)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EncounterArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15619, 2.44547, 0)
+shape = SubResource("BoxShape3D_fenbq")
+
+[connection signal="body_entered" from="EncounterArea" to="." method="_on_encounter_area_body_entered"]

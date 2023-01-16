@@ -1,0 +1,41 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c00s136jn1roh"
+path="res://.godot/imported/west_wing.glb-204c4ba3db629d326917d5a397584e44.scn"
+
+[deps]
+
+source_file="res://assets/models/tomb/west_wing.glb"
+dest_files=["res://.godot/imported/west_wing.glb-204c4ba3db629d326917d5a397584e44.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+import_script/path=""
+_subresources={
+"materials": {
+"Brick Wall (Baked)": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/tomb/brick_wall.tres"
+},
+"Smooth Stone (Baked)": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/tomb/smooth_stone.tres"
+}
+}
+}

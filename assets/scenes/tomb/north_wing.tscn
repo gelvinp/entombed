@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://0qksw1hltmh5"]
+
+[ext_resource type="Script" path="res://assets/scripts/tomb/BossDoorNavigationEnabler.gd" id="1_71con"]
+[ext_resource type="PackedScene" uid="uid://bcf6c3udwmjin" path="res://assets/meshes/tomb/north_wing.scn" id="1_jp7wc"]
+[ext_resource type="PackedScene" uid="uid://brkwkasopvd1c" path="res://assets/meshes/tomb/mound.scn" id="2_1kgoe"]
+[ext_resource type="Script" path="res://assets/scripts/PlayerRegion.gd" id="4_eojml"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_a763h"]
+vertices = PackedVector3Array(0.900001, 0.164677, 12.43, -1.3, 0.164677, 12.43, -1.3, 0.164677, 13.83, 1, 0.164677, 14.73, -3.5, 0.164677, 16.33, -0.9, 0.164677, 22.23, -0.4, 0.164677, 21.93, 1, 0.164677, 14.73, -1.3, 0.164677, 13.83, -1.5, 0.164677, 14.13, -1.5, 0.164677, 14.13, -3.4, 0.164677, 14.23, -3.5, 0.164677, 16.33, -0.4, 0.164677, 21.93, 0.3, 0.164677, 21.93, 1, 0.164677, 14.73, 7.7, 6.26468, 16.13, 4, 6.26468, 12.63, -4, 6.26468, 12.63, -7.7, 6.26468, 16.13, -7.7, 6.26468, 27.73, 0, 6.26468, 27.73, 0, 6.26468, 27.73, 7.7, 6.26468, 27.73, 7.7, 6.26468, 16.13, 3.5, 0.164677, 16.33, 3.4, 0.164677, 15.03, 1.3, 0.164677, 15.03, 0.3, 0.164677, 21.93, 0.900001, 0.164677, 22.23, 0.3, 0.164677, 21.93, 1.3, 0.164677, 15.03, 1, 0.164677, 14.73, -7.5, 0.164677, 23.43, -1.5, 0.164677, 23.43, -1.5, 0.164677, 23.03, -0.9, 0.164677, 22.23, -3.5, 0.164677, 16.33, -3.8, 0.164677, 16.63, -7.5, 0.164677, 23.43, -1.5, 0.164677, 23.03, -0.9, 0.164677, 22.23, -3.8, 0.164677, 16.63, -7.5, 0.164677, 16.63, 3.8, 0.164677, 16.63, 3.5, 0.164677, 16.33, 0.900001, 0.164677, 22.23, 1.2, 0.164677, 22.43, 1.2, 0.164677, 22.43, 1.5, 0.164677, 23.43, 7.5, 0.164677, 23.43, 7.5, 0.164677, 16.63, 3.8, 0.164677, 16.63, 0, 0.164677, 27.53, 0, 0.164677, 24.93, -0.5, 0.164677, 24.93, 0, 0.164677, 27.53, -0.5, 0.164677, 24.93, -1.3, 0.164677, 24.33, -7.5, 0.164677, 23.43, -7.5, 0.164677, 27.53, -1.3, 0.164677, 24.33, -1.5, 0.164677, 23.43, -7.5, 0.164677, 23.43, 0.900001, 0.164677, 24.73, 0, 0.164677, 24.93, 0, 0.164677, 27.53, 1.5, 0.164677, 23.93, 0.900001, 0.164677, 24.73, 0, 0.164677, 27.53, 7.5, 0.164677, 27.53, 7.5, 0.164677, 23.43, 7.5, 0.164677, 23.43, 1.5, 0.164677, 23.43, 1.5, 0.164677, 23.93)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 15), PackedInt32Array(12, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 16), PackedInt32Array(19, 16, 21), PackedInt32Array(19, 21, 20), PackedInt32Array(24, 23, 22), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(28, 25, 29), PackedInt32Array(32, 31, 30), PackedInt32Array(35, 34, 33), PackedInt32Array(36, 38, 37), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 39, 43), PackedInt32Array(47, 46, 44), PackedInt32Array(44, 46, 45), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 52), PackedInt32Array(50, 52, 51), PackedInt32Array(55, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 60), PackedInt32Array(58, 60, 59), PackedInt32Array(61, 63, 62), PackedInt32Array(66, 65, 64), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 70), PackedInt32Array(70, 67, 71), PackedInt32Array(74, 73, 72)]
+cell_size = 0.1
+cell_height = 0.05
+agent_height = 2.8
+region_min_size = 28.72
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2xqw"]
+size = Vector3(16.5881, 7.23591, 15.9142)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navmesh = SubResource("NavigationMesh_a763h")
+enabled = false
+script = ExtResource("1_71con")
+
+[node name="north_wing" parent="NavigationRegion3D" instance=ExtResource("1_jp7wc")]
+
+[node name="Mound" parent="NavigationRegion3D" instance=ExtResource("2_1kgoe")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10792, 0, 11.7978)
+visible = false
+layers = 0
+cast_shadow = 0
+size = Vector3(3.32687, 6.37065, 5.33572)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49516, 0, 11.7978)
+visible = false
+layers = 0
+cast_shadow = 0
+size = Vector3(3.32687, 6.37065, 3.74817)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.5579)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_eojml")
+region = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.82751, -1.29788)
+shape = SubResource("BoxShape3D_i2xqw")

@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddfq2xhsvkxu7"]
+
+[ext_resource type="PackedScene" uid="uid://boc8gmnvd2him" path="res://assets/meshes/tomb/east_wing.scn" id="1_vtrgn"]
+[ext_resource type="Script" path="res://assets/scripts/puzzles/prevention/Decal.gd" id="3_jqu2y"]
+[ext_resource type="PackedScene" uid="uid://dv3lxr45lmkl8" path="res://assets/scenes/puzzles/story/story_puzzle.tscn" id="3_o1o2c"]
+[ext_resource type="PackedScene" uid="uid://wygqii866pk6" path="res://assets/scenes/puzzles/labyrinth/maze_puzzle.tscn" id="4_2506t"]
+[ext_resource type="Script" path="res://assets/scripts/PlayerRegion.gd" id="5_5g0tq"]
+[ext_resource type="Script" path="res://assets/scripts/notable_location.gd" id="6_diga5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kiode"]
+size = Vector3(16.955, 5.819, 3.745)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oschs"]
+size = Vector3(9.74476, 5.819, 16.0148)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2ysb"]
+size = Vector3(9.74476, 5.819, 4.63031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5p3d"]
+size = Vector3(8.2844, 5.819, 5.83245)
+
+[node name="east_wing" type="Node3D"]
+
+[node name="east_wing" parent="." instance=ExtResource("1_vtrgn")]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, -1, -1, -4.37114e-08, -4.37114e-08, -18.268, 2.69129, -9.05377e-10)
+extents = Vector3(3.8, 1, 1.617)
+modulate = Color(0.513726, 0.643137, 0.85098, 1)
+script = ExtResource("3_jqu2y")
+
+[node name="StoryPuzzle" parent="." instance=ExtResource("3_o1o2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 8)
+
+[node name="MazePuzzle" parent="." instance=ExtResource("4_2506t")]
+transform = Transform3D(-0.98, 0, -1.50996e-07, 0, 1, 0, 1.47976e-07, 0, -1, -20.1, 0, -10)
+
+[node name="StoryPuzzleArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2322, 0, 8.06097)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_5g0tq")
+region = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoryPuzzleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509731, 2.26959, 0)
+shape = SubResource("BoxShape3D_kiode")
+
+[node name="MazePuzzleArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.141, 0, -1.08045)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_5g0tq")
+region = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MazePuzzleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378269, 2.26959, -1.26089)
+shape = SubResource("BoxShape3D_oschs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MazePuzzleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.90202, 2.26959, -6.93748)
+shape = SubResource("BoxShape3D_i2ysb")
+
+[node name="MuralArea" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.6823, 0, -8.45662)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_5g0tq")
+region = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MuralArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46434, 2.26959, -6.43429)
+shape = SubResource("BoxShape3D_q5p3d")
+
+[node name="LP_StoryPuzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.1, 8)
+script = ExtResource("6_diga5")
+
+[node name="LP_MazePuzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.1, -8)
+script = ExtResource("6_diga5")
+
+[node name="WP_StoryPuzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0.1, 7)
+script = ExtResource("6_diga5")

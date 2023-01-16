@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbekgk1d5mp7w"]
+
+[ext_resource type="PackedScene" uid="uid://bubhedcr6yrk7" path="res://assets/scenes/torches/torch_in_holder.tscn" id="2_2sd7n"]
+[ext_resource type="PackedScene" uid="uid://dd2qiytj5ti66" path="res://assets/meshes/main_menu/main_menu_tomb.scn" id="2_mvy8q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ymokv"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+sky_energy_multiplier = 0.0
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_rd6i2"]
+sky_material = SubResource("ProceduralSkyMaterial_ymokv")
+
+[sub_resource type="Environment" id="Environment_gkbs5"]
+background_mode = 2
+sky = SubResource("Sky_rd6i2")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.1
+tonemap_mode = 2
+
+[node name="main_menu_tomb" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gkbs5")
+
+[node name="Torch" parent="." instance=ExtResource("2_2sd7n")]
+transform = Transform3D(0.207912, 0, -0.978148, 0, 1, 0, 0.978148, 0, 0.207912, -3.84276, 2, -3.19041)
+
+[node name="Torch2" parent="." instance=ExtResource("2_2sd7n")]
+transform = Transform3D(-0.207912, 0, -0.978148, 0, 1, 0, 0.978148, 0, -0.207912, 3.843, 2, -3.19)
+
+[node name="Torch3" parent="." instance=ExtResource("2_2sd7n")]
+transform = Transform3D(0.207912, 0, 0.978148, 0, 1, 0, -0.978148, 0, 0.207912, -3.85631, 2, 3.18755)
+
+[node name="Torch4" parent="." instance=ExtResource("2_2sd7n")]
+transform = Transform3D(-0.207912, 0, 0.978148, 0, 1, 0, -0.978148, 0, -0.207912, 3.856, 2, 3.188)
+
+[node name="Torch5" parent="." instance=ExtResource("2_2sd7n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4375, 2, -11.8337)
+
+[node name="Torch6" parent="." instance=ExtResource("2_2sd7n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.437, 2, -11.834)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.70394, 2.11378, -10.7239)
+current = true
+fov = 37.8493
+
+[node name="main_menu_tomb" parent="." instance=ExtResource("2_mvy8q")]

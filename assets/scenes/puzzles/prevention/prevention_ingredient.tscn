@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8xdx158mb4y"]
+
+[ext_resource type="Script" path="res://assets/scripts/puzzles/prevention/prevention_ingredient.gd" id="1_lfoji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qju8g"]
+size = Vector3(0.5, 0.7, 0.7)
+
+[node name="PreventionIngredient" type="Area3D"]
+collision_layer = 4
+monitoring = false
+script = ExtResource("1_lfoji")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188683, 0.0119824)
+shape = SubResource("BoxShape3D_qju8g")

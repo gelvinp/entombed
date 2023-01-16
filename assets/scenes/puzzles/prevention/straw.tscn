@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cumro87btdg1t"]
+
+[ext_resource type="ArrayMesh" uid="uid://dhm8vtgwaa7dw" path="res://assets/meshes/puzzles/prevention/straw.res" id="1_b0wdy"]
+
+[node name="straw" type="Node3D"]
+
+[node name="Straw" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_b0wdy")
+skeleton = NodePath("")

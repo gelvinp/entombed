@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://do2cannbowhqe"]
+
+[ext_resource type="ArrayMesh" uid="uid://dvcvd85g64s2r" path="res://assets/meshes/puzzles/prevention/cross.res" id="1_abrhn"]
+
+[node name="cross" type="Node3D"]
+
+[node name="Cube009" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_abrhn")
+skeleton = NodePath("")

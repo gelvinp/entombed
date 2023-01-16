@@ -1,0 +1,118 @@
+boss_door_open.wav
+Heavy stone door opens by PostProdDog via freesound.org
+  CC0
+
+
+bridge_movement.wav
+stone_sliding.wav by Rooms_Boxes via freesound.org
+  CC0
+stone_on_stone_impact_loud5.aif by thanvannispen via freesound.org
+  Licensed under CC-BY 4.0
+
+
+cauldron_bubble.ogg
+Lava Loop 4 created by Fission9 via freesound.org
+  CC0
+
+
+danger.res
+G-sine Natural Distortion - Loop by unfa via freesound.org
+  CC0
+
+
+door_unlock.wav
+opening the door - unlock by Tetoszka via freesound.org
+  CC0
+
+
+enemy_scream.ogg
+Alien_Monster_Scream.wav by audioone via freesound.org
+  CC0
+
+
+footsteps_left/right.wav
+RPG Audio pack from kenney.nl
+  CC0
+
+
+gate_crash.wav
+gate big rusty metal door garage open heavy creak rattle.flac by kyles via freesound.org
+  CC0
+Heavy Gate Metal 03 (underground bunker of civil defense, Vsetin City, Club Vesmir) by ALEFF-ATMOS via freesound.org
+  CC0
+
+
+gate_open.wav
+Contact Microphone on a Metallic Drying Rack Impacts Ratchet by JavierZumer via freesound.org
+  CC0
+
+
+heartbeat.ogg
+Heartbeat, Regular, Single, 01-01, LOOP.wav by InspectorJ via freesound.org
+  Licensed under CC-BY 4.0
+
+
+key_collect.wav
+320144__owlstorm__blanket-movement-6.wav from Sound Effects Pack by OwnlishMedia via opengameart.org
+  CC0
+
+
+lock_attempt.wav
+opening the door - unlock by Tetoszka via freesound.org
+  CC0
+
+
+mound_burn.ogg
+Flame Ignition by hykenfreak via freesound.org
+  Licensed under CC-BY 4.0
+Wood burning in the stove by smand via freesound.org
+  CC0
+
+
+pageturn1.wav
+pageturn1.wav from Sound Effects Pack by OwnlishMedia via opengameart.org
+  CC0
+
+
+prevention_correct.wav
+metal-ringing.wav from rpg_sound_pack by artisticdude via opengameart.org
+  CC0
+
+
+prevention_reset.wav
+chainmail1.wav from rpg_sound_pack by artisticdude via opengameart.org
+  CC0
+
+
+static.ogg
+film_static_04.wav by joedeshon via freesound.org
+  CC0
+
+
+story_whoosh.wav
+Long Ethereal Woosh.wav by newagesoup via freesound.org
+
+
+submerge.wav
+SFX_Submerge by Perel via freesound.org
+  CC0
+
+
+switch.wav
+turn_stove_on_01.ogg from Stove Switch by TinyWorlds via opengameart.org
+  CC0
+
+
+torch_loop.ogg
+torch ambiance loop by LordStirling via freesound.org
+  CC0
+
+
+ui_click.wav
+UI_024.wav from Sound Effects Pack by OwnlishMedia via opengameart.org
+  CC0
+
+
+whispers_loop.ogg
+ancient spirits.wav by shadoWisp via freesound.org
+    Licensed under CC-BY 3.0

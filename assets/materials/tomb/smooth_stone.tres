@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://blhud1ipv3306"]
+
+[ext_resource type="Texture2D" uid="uid://bohch56vjh1tu" path="res://assets/textures/tomb/smooth_stone/smooth_stone_albedo.png" id="1_75kdx"]
+[ext_resource type="Texture2D" uid="uid://b6imf4s2nigr0" path="res://assets/textures/tomb/smooth_stone/smooth_stone_normal.png" id="2_g8py7"]
+[ext_resource type="Texture2D" uid="uid://cq3afiv87xtud" path="res://assets/textures/tomb/smooth_stone/smooth_stone_roughness.png" id="3_12pke"]
+
+[resource]
+albedo_texture = ExtResource("1_75kdx")
+roughness_texture = ExtResource("3_12pke")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 0.25
+normal_texture = ExtResource("2_g8py7")

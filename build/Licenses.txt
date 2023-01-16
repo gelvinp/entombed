@@ -1,0 +1,65 @@
+ENTOMBED - Copyright © Patrick Gelvin 2022
+
+
+Entombed makes use of the following licensed assets:
+
+Godot Engine - Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur. Copyright (c) 2014-2022 Godot Engine contributors.
+Licenced under the MIT license
+
+Atmosphere Cave (Loop) - Created by julius_galla via freesound.org
+Licensed under CC-BY 3.0
+
+Dark Ambient Loop 13 - Created by MundoSound via opengameart.org
+Licensed under CC-BY 3.0
+
+stone_on_stone_impact_loud5.aif - Created by thanvannispen via freesound.org
+Licensed under CC-BY 4.0
+
+ancient spirits.wav - Created by shadoWisp via freesound.org
+Licensed under CC-BY 3.0
+
+Flame Ignition - Created by hykenfreak via freesound.org
+Licensed under CC-BY 4.0
+
+Heartbeat, Regular, Single, 01-01, LOOP.wav by InspectorJ via freesound.org
+Licensed under CC-BY 4.0
+
+Averia Serif Libre - Copyright (c) 2011, Dan Sayers (i@iotic.com),
+with Reserved Font Name 'Averia' and 'Averia Libre'.
+Licensed under OFL
+
+
+The Godot Engine has been compiled with the following third party module(s):
+
+FreeType
+Portions of this software are copyright © 1996-2022 The FreeType Project (www.freetype.org). All rights reserved.
+
+
+The above licenses are included below:
+CC-BY 3.0
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+CC-BY 4.0
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+OFL
+https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+
+MIT license
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

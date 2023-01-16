@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdoc18rloebfd"]
+
+[ext_resource type="Script" path="res://assets/scripts/player/sprint.gd" id="1_vfeff"]
+
+[node name="Sprint" type="Node"]
+script = ExtResource("1_vfeff")
+sprint_time = 0.0
+cooldown_time = 0.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

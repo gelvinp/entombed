@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://c47gi2nldvek3"]
+
+[ext_resource type="Script" path="res://assets/scripts/main_menu/loader.gd" id="1_spf0q"]
+[ext_resource type="PackedScene" uid="uid://d0oamubtydhgi" path="res://assets/scenes/main_menu/main_menu.tscn" id="2_sreay"]
+[ext_resource type="Theme" uid="uid://8ixrlafnx7g8" path="res://assets/themes/default_theme.tres" id="3_c8wy7"]
+
+[node name="Loader" type="Node"]
+process_mode = 3
+script = ExtResource("1_spf0q")
+initial_scene = ExtResource("2_sreay")
+
+[node name="Cover" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Cover"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cover"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -80.0
+offset_right = -29.0
+offset_bottom = -28.999
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_c8wy7")
+theme_override_font_sizes/font_size = 42
+text = "LOADING"

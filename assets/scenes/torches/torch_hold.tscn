@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn8sefxjano0j"]
+
+[ext_resource type="PackedScene" uid="uid://b72lcunihapq2" path="res://assets/scenes/torches/torch_flame.tscn" id="1_ic6y4"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8thpt"]
+
+[node name="TorchHold" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+cull_mask = 1048572
+attributes = SubResource("CameraAttributesPractical_8thpt")
+current = true
+
+[node name="Torch" parent="." instance=ExtResource("1_ic6y4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.33, -0.618, -0.515)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34714, -0.187203, -0.555503)
+layers = 4
+light_cull_mask = 4294967292
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304603, -0.227301, -0.323609)
+layers = 4
+light_energy = 0.335
+light_cull_mask = 4294967292
+shadow_enabled = true
+omni_range = 10.0

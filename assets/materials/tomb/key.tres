@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b7q72m4wrj5tu"]
+
+[ext_resource type="Texture2D" uid="uid://cbhyxblyijcc4" path="res://assets/textures/tomb/key/key_albedo.png" id="1_a0uoj"]
+[ext_resource type="Texture2D" uid="uid://3wh3cigi05cq" path="res://assets/textures/tomb/key/key_metallic.png" id="2_vc2sq"]
+[ext_resource type="Texture2D" uid="uid://sf4s07membqf" path="res://assets/textures/tomb/key/key_normal.png" id="3_fj8oi"]
+[ext_resource type="Texture2D" uid="uid://bjxiggetj00lh" path="res://assets/textures/tomb/key/key_roughness.png" id="4_o03r4"]
+
+[resource]
+albedo_texture = ExtResource("1_a0uoj")
+metallic = 1.0
+metallic_texture = ExtResource("2_vc2sq")
+roughness_texture = ExtResource("4_o03r4")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_fj8oi")

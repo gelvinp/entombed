@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://brmfjrrwwmij0"]
+
+[ext_resource type="Texture2D" uid="uid://bt8vehygxvqtr" path="res://assets/textures/puzzles/story_decal3.png" id="1_4ea7e"]
+[ext_resource type="Script" path="res://assets/resources/story_pair.gd" id="1_cdx2a"]
+[ext_resource type="Texture2D" uid="uid://yihlu2yhl356" path="res://assets/textures/puzzles/story_decal4.png" id="3_5k8k2"]
+
+[resource]
+script = ExtResource("1_cdx2a")
+first_choice = ExtResource("1_4ea7e")
+second_choice = ExtResource("3_5k8k2")

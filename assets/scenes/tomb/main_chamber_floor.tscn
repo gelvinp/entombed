@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mlucix8tivvg"]
+
+[ext_resource type="PackedScene" uid="uid://y8641w2ptvy5" path="res://assets/meshes/tomb/main_chamber_floor.scn" id="1_dkhky"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f8gyl"]
+points = PackedVector3Array(-12, 0, -12, -12, 0.1, -12, 12, 0, -12, -12, 0, 12, -12, 0.1, 12, 12, 0.1, -12, 12, 0, 12, 12, 0.1, 12)
+
+[node name="main_chamber_floor" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_f8gyl")
+
+[node name="main_chamber_floor" parent="." instance=ExtResource("1_dkhky")]

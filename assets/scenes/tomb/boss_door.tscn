@@ -1,0 +1,171 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6dxgvljtu8qs"]
+
+[ext_resource type="ArrayMesh" uid="uid://dtc5kv3fx6x5u" path="res://assets/meshes/boss_door/boss_door_left.tres" id="1_1d3wq"]
+[ext_resource type="Script" path="res://assets/scripts/tomb/boss_door.gd" id="1_eyvcl"]
+[ext_resource type="ArrayMesh" uid="uid://djlqe1svw47ei" path="res://assets/meshes/boss_door/boss_door_right.tres" id="2_8abvg"]
+[ext_resource type="ArrayMesh" uid="uid://dvhb1m34p0ahm" path="res://assets/meshes/boss_door/boss_door_lock.tres" id="3_lr606"]
+[ext_resource type="Script" path="res://assets/scripts/tomb/boss_door_interactable.gd" id="4_vjbum"]
+[ext_resource type="AudioStream" uid="uid://d35kq8fwdklyp" path="res://assets/sounds/lock_attempt.wav" id="5_1m6wp"]
+[ext_resource type="AudioStream" uid="uid://cjsnx1ld1mh8u" path="res://assets/sounds/boss_door_open.wav" id="7_16w7d"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3v5b0"]
+data = PackedVector3Array(-3, 0, -0.25, 0, 6, -0.25, -3, 6, -0.25, -3, 0, -0.25, 0, 0, -0.25, 0, 6, -0.25, 0, 0, -0.25, 0, 6, 0.25, 0, 6, -0.25, 0, 0, -0.25, 0, 0, 0.25, 0, 6, 0.25, -3, 0, -0.25, 0, 0, 0.25, 0, 0, -0.25, -3, 0, -0.25, -3, 0, 0.25, 0, 0, 0.25, 0, 6, -0.25, -3, 6, 0.25, -3, 6, -0.25, 0, 6, -0.25, 0, 6, 0.25, -3, 6, 0.25, 0, 0, 0.25, -3, 6, 0.25, 0, 6, 0.25, 0, 0, 0.25, -3, 0, 0.25, -3, 6, 0.25, -3, 6, 0.25, -3, 0, -0.25, -3, 6, -0.25, -3, 6, 0.25, -3, 0, 0.25, -3, 0, -0.25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y7pq2"]
+data = PackedVector3Array(0, 0, 0.25, 0, 6, -0.25, 0, 6, 0.25, 0, 0, 0.25, 0, 0, -0.25, 0, 6, -0.25, 3, 0, 0.25, 0, 6, 0.25, 3, 6, 0.25, 3, 0, 0.25, 0, 0, 0.25, 0, 6, 0.25, 3, 6, -0.25, 0, 6, 0.25, 0, 6, -0.25, 3, 6, -0.25, 3, 6, 0.25, 0, 6, 0.25, 0, 0, -0.25, 3, 0, 0.25, 3, 0, -0.25, 0, 0, -0.25, 0, 0, 0.25, 3, 0, 0.25, 0, 0, -0.25, 3, 6, -0.25, 0, 6, -0.25, 0, 0, -0.25, 3, 0, -0.25, 3, 6, -0.25, 3, 6, 0.25, 3, 0, -0.25, 3, 0, 0.25, 3, 6, 0.25, 3, 6, -0.25, 3, 0, -0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kaxpn"]
+points = PackedVector3Array(-2.5, 1.9, -0.25, -2.5, 0.9, -0.25, -2.5, 1.9, -0.55, -3.5, 1.9, -0.25, -2.5, 0.9, -0.55, -3.5, 0.9, -0.25, -3.5, 1.9, -0.55, -3.5, 0.9, -0.55)
+
+[sub_resource type="Animation" id="Animation_01nyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ri0nf"]
+resource_name = "open"
+length = 7.0
+step = 0.01
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movement")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_16w7d")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.69, 6.87),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D2:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.87),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatableBody3D3:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.69, 6.87),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktfyh"]
+_data = {
+"RESET": SubResource("Animation_01nyt"),
+"open": SubResource("Animation_ri0nf")
+}
+
+[node name="boss_door" type="Node3D"]
+script = ExtResource("1_eyvcl")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0999999, 12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3v5b0")
+
+[node name="Cube005" type="MeshInstance3D" parent="AnimatableBody3D"]
+layers = 8
+mesh = ExtResource("1_1d3wq")
+skeleton = NodePath("")
+
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0999999, 12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_y7pq2")
+
+[node name="Cube007" type="MeshInstance3D" parent="AnimatableBody3D2"]
+layers = 8
+mesh = ExtResource("2_8abvg")
+skeleton = NodePath("")
+
+[node name="AnimatableBody3D3" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0999999, 12)
+collision_layer = 5
+script = ExtResource("4_vjbum")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D3"]
+shape = SubResource("ConvexPolygonShape3D_kaxpn")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AnimatableBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02626, 1.17409, -0.35892)
+stream = ExtResource("5_1m6wp")
+
+[node name="Cube006" type="MeshInstance3D" parent="AnimatableBody3D3"]
+layers = 8
+mesh = ExtResource("3_lr606")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ktfyh")
+}
+
+[node name="Movement" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.8441)
+stream = ExtResource("7_16w7d")
+
+[connection signal="door_unlocked" from="AnimatableBody3D3" to="." method="_on_animatable_body_3d_door_unlocked"]

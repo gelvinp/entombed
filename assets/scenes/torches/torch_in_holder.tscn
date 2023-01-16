@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bubhedcr6yrk7"]
+
+[ext_resource type="PackedScene" uid="uid://b8lys2ef1cgyi" path="res://assets/models/torch.gltf" id="1_r28bo"]
+[ext_resource type="Material" uid="uid://hb53ayqwvcwe" path="res://assets/scenes/torches/torch_flame.tres" id="2_yvusn"]
+[ext_resource type="Script" path="res://assets/scripts/torches/Flicker.gd" id="3_1m0qb"]
+[ext_resource type="ArrayMesh" uid="uid://ccqevdgfwxqqk" path="res://assets/meshes/torch_in_holder.tres" id="4_csic6"]
+[ext_resource type="AudioStream" uid="uid://cp8v48lb27412" path="res://assets/sounds/torch_loop.ogg" id="4_pu8sb"]
+
+[sub_resource type="Curve" id="Curve_rpu83"]
+_data = [Vector2(0.0147929, 0.0818181), 0.0, 5.70649, 0, 0, Vector2(0.242604, 0.972727), 0.111736, 0.111736, 0, 0, Vector2(1, 0.0909091), -2.44242, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ino7a"]
+curve = SubResource("Curve_rpu83")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4rxje"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 20.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+scale_curve = SubResource("CurveTexture_ino7a")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jhwv5"]
+material = ExtResource("2_yvusn")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uqtba"]
+streams_count = 1
+playback_mode = 2
+random_pitch = 1.3
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("4_pu8sb")
+stream_0/weight = 1.0
+
+[node name="Torch" instance=ExtResource("1_r28bo")]
+
+[node name="Torch" parent="." index="0"]
+cast_shadow = 0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0670623, 0.438391, 0)
+amount = 32
+lifetime = 0.5
+preprocess = 0.5
+visibility_aabb = AABB(-0.34806, -0.289147, -0.358172, 0.703794, 0.995193, 0.690367)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_4rxje")
+draw_pass_1 = SubResource("QuadMesh_jhwv5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047143, 0.405989, 0)
+layers = 5
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.1
+distance_fade_enabled = true
+omni_range = 10.0
+script = ExtResource("3_1m0qb")
+
+[node name="Torch001" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.993399, 0.11471, 0, -0.11471, 0.993399, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("4_csic6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_uqtba")
+volume_db = -6.0
+unit_size = 5.0
+autoplay = true
+max_distance = 15.0

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c711yft5cuocu"]
+
+[ext_resource type="Script" path="res://assets/scripts/non_movement_penalty.gd" id="1_180hh"]
+[ext_resource type="AudioStream" uid="uid://dywamf07obr4c" path="res://assets/sounds/whispers_loop.ogg" id="2_fdaph"]
+[ext_resource type="AudioStream" uid="uid://yxbxej8hgltu" path="res://assets/sounds/danger.res" id="3_genxi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fd46l"]
+height = 3.0
+radius = 1.0
+
+[node name="NonMovementPenalty" type="Node3D"]
+script = ExtResource("1_180hh")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fd46l")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fdaph")
+volume_db = -6.0
+
+[node name="DangerStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_genxi")
+pitch_scale = 0.25
+
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

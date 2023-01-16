@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+screenshots/
+build/*
+export_presets.cfg
+.DS_Store
+!build/.gdignore
+!build/custom.py
+!build/Licenses.txt

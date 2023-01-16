@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dmoinepm56w2p"]
+
+[ext_resource type="Script" path="res://assets/resources/cutscene_wait_for.gd" id="1_4b7ld"]
+
+[resource]
+script = ExtResource("1_4b7ld")
+duration = 1.2

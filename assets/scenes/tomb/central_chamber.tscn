@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvvlxnarnwleh"]
+
+[ext_resource type="PackedScene" uid="uid://co5cv1vgqnd3w" path="res://assets/meshes/tomb/central_chamber_geometry.scn" id="1_my88m"]
+[ext_resource type="PackedScene" uid="uid://bubhedcr6yrk7" path="res://assets/scenes/torches/torch_in_holder.tscn" id="3_3otge"]
+[ext_resource type="Script" path="res://assets/scripts/notable_location.gd" id="3_14bnx"]
+
+[node name="CentralChamber" type="Node3D"]
+
+[node name="CentralChamberGeometry" parent="." instance=ExtResource("1_my88m")]
+
+[node name="Torch" parent="." instance=ExtResource("3_3otge")]
+transform = Transform3D(0.207912, 0, -0.978148, 0, 1, 0, 0.978148, 0, 0.207912, -3.84276, 2, -3.19041)
+
+[node name="Torch2" parent="." instance=ExtResource("3_3otge")]
+transform = Transform3D(-0.207912, 0, -0.978148, 0, 1, 0, 0.978148, 0, -0.207912, 3.843, 2, -3.19)
+
+[node name="Torch3" parent="." instance=ExtResource("3_3otge")]
+transform = Transform3D(0.207912, 0, 0.978148, 0, 1, 0, -0.978148, 0, 0.207912, -3.85631, 2, 3.18755)
+
+[node name="Torch4" parent="." groups=["cutscene_look_at"] instance=ExtResource("3_3otge")]
+transform = Transform3D(-0.207912, 0, 0.978148, 0, 1, 0, -0.978148, 0, -0.207912, 3.856, 2, 3.188)
+
+[node name="Torch5" parent="." instance=ExtResource("3_3otge")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4375, 2, -11.8337)
+
+[node name="Torch6" parent="." instance=ExtResource("3_3otge")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.437, 2, -11.834)
+
+[node name="WP_Ambush" type="Marker3D" parent="." groups=["WP_CentralChamber"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+script = ExtResource("3_14bnx")

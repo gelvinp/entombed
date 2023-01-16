@@ -1,0 +1,185 @@
+[gd_scene load_steps=24 format=3 uid="uid://c13taki1g53uf"]
+
+[ext_resource type="Script" path="res://assets/scripts/game_scene.gd" id="1_3qrl4"]
+[ext_resource type="Material" uid="uid://bnwylyynpp7q1" path="res://assets/shaders/colorize_mat.tres" id="2_phbwx"]
+[ext_resource type="Script" path="res://assets/scripts/ResponsiveViewportContainer.gd" id="3_qytyj"]
+[ext_resource type="PackedScene" uid="uid://boufssdy4508s" path="res://assets/scenes/player/player.tscn" id="3_xfpcc"]
+[ext_resource type="PackedScene" uid="uid://dwq3yi8852ff0" path="res://assets/scenes/tomb.tscn" id="4_xgk4q"]
+[ext_resource type="PackedScene" uid="uid://cn8sefxjano0j" path="res://assets/scenes/torches/torch_hold.tscn" id="5_cx7g8"]
+[ext_resource type="PackedScene" uid="uid://b2kyih34b1w3y" path="res://assets/scenes/enemy/enemy.tscn" id="5_ev6da"]
+[ext_resource type="AudioStream" uid="uid://c3irfxjt1hwx2" path="res://assets/sounds/heartbeat.ogg" id="5_omdk2"]
+[ext_resource type="PackedScene" uid="uid://c711yft5cuocu" path="res://assets/scenes/non_movement_penalty.tscn" id="5_r0a0t"]
+[ext_resource type="PackedScene" uid="uid://cds1jist0dx4h" path="res://assets/scenes/main_menu/options_in_game.tscn" id="5_yiqkf"]
+[ext_resource type="Script" path="res://assets/scripts/player/Heartbeat.gd" id="6_6b6d5"]
+[ext_resource type="PackedScene" uid="uid://c5o2ypraf7wkt" path="res://assets/scenes/ui/stamina_wheel.tscn" id="6_37kuh"]
+[ext_resource type="PackedScene" uid="uid://8e6ogyirdq05" path="res://assets/scenes/audio/ambiance_player.tscn" id="7_brkwp"]
+[ext_resource type="PackedScene" uid="uid://b0gkbers8w4ut" path="res://assets/scenes/puzzles/story/book.tscn" id="7_munmr"]
+[ext_resource type="PackedScene" uid="uid://bd5n58nv665t0" path="res://assets/scenes/ui/interactable_display.tscn" id="8_3v2a5"]
+[ext_resource type="AudioStream" uid="uid://0sjbu51jydjc" path="res://assets/music/atmosphere_loop.ogg" id="8_vi7yr"]
+[ext_resource type="AudioStream" uid="uid://bqo4cdl7si5c1" path="res://assets/sounds/ui_click.wav" id="12_7dt08"]
+[ext_resource type="Script" path="res://assets/scripts/FadeToWhite.gd" id="13_c0q4v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pib7w"]
+
+[sub_resource type="Sky" id="Sky_bd4qp"]
+sky_material = SubResource("ProceduralSkyMaterial_pib7w")
+
+[sub_resource type="Environment" id="Environment_aiogi"]
+sky = SubResource("Sky_bd4qp")
+tonemap_mode = 2
+ssao_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vebep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tjc5"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 0.937255)
+
+[node name="Node3D" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_3qrl4")
+blue_colors = [Color(0.0235294, 0, 0.0509804, 1), Color(0.137255, 0.215686, 0.321569, 1), Color(0.282353, 0.47451, 0.639216, 1), Color(0.376471, 0.643137, 0.709804, 1), Color(0.678431, 0.858824, 0.792157, 1), Color(0.894118, 0.894118, 0.894118, 1)]
+red_colors = [Color(0.0235294, 0, 0.0509804, 1), Color(0.239216, 0.027451, 0.0470588, 1), Color(0.380392, 0.0392157, 0.0392157, 1), Color(0.760784, 0.137255, 0.137255, 1), Color(0.921569, 0.552941, 0.458824, 1), Color(0.894118, 0.894118, 0.894118, 1)]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = ExtResource("2_phbwx")
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+use_occlusion_culling = true
+audio_listener_enable_3d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+script = ExtResource("3_qytyj")
+
+[node name="World" type="Node" parent="SubViewportContainer/SubViewport"]
+process_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/World"]
+environment = SubResource("Environment_aiogi")
+camera_attributes = SubResource("CameraAttributesPhysical_vebep")
+
+[node name="Player" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("3_xfpcc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.19358, -30.778)
+look_at_gate_cutscene = null
+
+[node name="Heartbeat" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+stream = ExtResource("5_omdk2")
+volume_db = -3.0
+unit_size = 3.16
+autoplay = true
+bus = &"Heartbeat"
+script = ExtResource("6_6b6d5")
+
+[node name="NonMovementPenalty" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("5_r0a0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.19358, -30.778)
+non_movement_time = 20
+
+[node name="Enemy" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("5_ev6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+
+[node name="Tomb" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("4_xgk4q")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewportContainer/SubViewport/World"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewport/World/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+script = ExtResource("3_qytyj")
+
+[node name="TorchHold" parent="SubViewportContainer/SubViewport/World/SubViewportContainer/SubViewport" instance=ExtResource("5_cx7g8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.4837, -2.97765, 0)
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0tjc5")
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewportContainer/SubViewport/PanelContainer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="OptionsInGame" parent="SubViewportContainer/SubViewport/PanelContainer/CenterContainer" instance=ExtResource("5_yiqkf")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Book" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_munmr")]
+visible = false
+
+[node name="Control" type="MarginContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="StaminaWheel" parent="Control" instance=ExtResource("6_37kuh")]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 115.0
+offset_bottom = 115.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+normal_color = Color(0.309804, 0.690196, 0.454902, 1)
+exhausted_color = Color(0.686275, 0.372549, 0.0705882, 1)
+exhausted_severe_color = Color(0.858824, 0.231373, 0.231373, 1)
+
+[node name="InteractableDisplay" parent="." instance=ExtResource("8_3v2a5")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+guidance_time = 2.5
+
+[node name="AmbiancePlayer" parent="." instance=ExtResource("7_brkwp")]
+audio_stream = ExtResource("8_vi7yr")
+normal_volume = 0.25
+normal_fade_duration = 2.0
+
+[node name="PauseSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("12_7dt08")
+volume_db = -12.0
+
+[node name="FadeToWhite" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("13_c0q4v")
+
+[connection signal="close" from="SubViewportContainer/SubViewport/PanelContainer/CenterContainer/OptionsInGame" to="." method="_on_options_in_game_close"]

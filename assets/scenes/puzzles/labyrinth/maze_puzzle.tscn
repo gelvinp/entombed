@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wygqii866pk6"]
+
+[ext_resource type="Script" path="res://assets/scripts/puzzles/labyrinth/maze_puzzle.gd" id="1_othgd"]
+
+[node name="MazePuzzle" type="Node3D"]
+script = ExtResource("1_othgd")

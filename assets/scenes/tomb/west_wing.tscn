@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2gvx7sagdfg2"]
+
+[ext_resource type="PackedScene" uid="uid://xbip3spddq3p" path="res://assets/meshes/tomb/west_wing.scn" id="1_vfviy"]
+[ext_resource type="PackedScene" uid="uid://b7dt7dr8opunx" path="res://assets/scenes/puzzles/prevention/prevention_puzzle.tscn" id="2_e00at"]
+[ext_resource type="PackedScene" uid="uid://dcqjoxsrq1c83" path="res://assets/scenes/puzzles/story/book_interactable.tscn" id="3_y3wid"]
+[ext_resource type="PackedScene" uid="uid://58q46cfd4c7s" path="res://assets/scenes/puzzles/bridges/bridge_puzzle.tscn" id="4_rrpli"]
+[ext_resource type="Script" path="res://assets/scripts/PlayerRegion.gd" id="5_m7vio"]
+[ext_resource type="Script" path="res://assets/scripts/notable_location.gd" id="6_hqrmp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rn4"]
+size = Vector3(3.83021, 3.5677, 3.58096)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uy4wt"]
+size = Vector3(15.8263, 5.819, 7.69694)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wbi8"]
+size = Vector3(15.8263, 10.4038, 13.5332)
+
+[node name="west_wing" type="Node3D"]
+
+[node name="west_wing" parent="." instance=ExtResource("1_vfviy")]
+
+[node name="PreventionPuzzle" parent="." instance=ExtResource("2_e00at")]
+
+[node name="BookInteractable" parent="." instance=ExtResource("3_y3wid")]
+
+[node name="BridgePuzzle" parent="." instance=ExtResource("4_rrpli")]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1244, 0, -2.03367)
+collision_layer = 8
+collision_mask = 8
+audio_bus_override = true
+audio_bus_name = &"Silent"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87646, 1.21627, 2.26193)
+shape = SubResource("BoxShape3D_00rn4")
+
+[node name="PreventionPuzzleArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1393, 0, 6.40168)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_m7vio")
+region = 5
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PreventionPuzzleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14711, 2.69716, 0)
+shape = SubResource("BoxShape3D_uy4wt")
+
+[node name="BridgePuzzleArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1393, 0, -5.13873)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_m7vio")
+region = 4
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BridgePuzzleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14711, 1.60823, 0.0918894)
+shape = SubResource("BoxShape3D_6wbi8")
+
+[node name="LP_PreventionPuzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.1, 4)
+script = ExtResource("6_hqrmp")
+
+[node name="WP_PreventionPuzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.106, 0.1, 8.23826)
+script = ExtResource("6_hqrmp")
+
+[node name="LP_BridgePuzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.1, -6)
+script = ExtResource("6_hqrmp")

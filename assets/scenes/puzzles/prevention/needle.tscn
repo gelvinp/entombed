@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dshdgswtwtulx"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwmo5csx3auhl" path="res://assets/meshes/puzzles/prevention/needle.res" id="1_pmumh"]
+
+[node name="needle" type="Node3D"]
+
+[node name="Cone" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_pmumh")
+skeleton = NodePath("")

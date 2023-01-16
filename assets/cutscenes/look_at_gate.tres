@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c63y7rfrxxg7s"]
+
+[ext_resource type="Script" path="res://assets/resources/cutscene_look_at.gd" id="1_0h0pi"]
+
+[resource]
+script = ExtResource("1_0h0pi")
+target_name = "GateLookTarget"
+tween_duration = 0.8
+look_duration = 0.5

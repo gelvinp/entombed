@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0pugxjcubi80"]
+
+[ext_resource type="ArrayMesh" uid="uid://ccv78tr8x0rs8" path="res://assets/meshes/puzzles/prevention/scissors.res" id="1_poqrx"]
+
+[node name="scissors" type="Node3D"]
+
+[node name="Scissors" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.78814e-07, -1, 0, 1, 1.78814e-07, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_poqrx")
+skeleton = NodePath("")

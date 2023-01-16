@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5o2ypraf7wkt"]
+
+[ext_resource type="Texture2D" uid="uid://2gt0kqfev0p3" path="res://assets/textures/UI/stamina.svg" id="1_5h2gv"]
+[ext_resource type="Script" path="res://assets/scripts/ui/stamina_wheel.gd" id="2_64wom"]
+
+[node name="StaminaWheel" type="TextureProgressBar"]
+texture_filter = 2
+offset_right = 40.0
+offset_bottom = 40.0
+step = 0.001
+fill_mode = 4
+texture_under = ExtResource("1_5h2gv")
+texture_progress = ExtResource("1_5h2gv")
+tint_under = Color(0.109804, 0.109804, 0.109804, 1)
+tint_progress = Color(0.270588, 1, 0.439216, 1)
+script = ExtResource("2_64wom")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

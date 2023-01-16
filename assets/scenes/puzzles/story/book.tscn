@@ -1,0 +1,245 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0gkbers8w4ut"]
+
+[ext_resource type="Script" path="res://assets/scripts/puzzles/story/book.gd" id="1_0fkj7"]
+[ext_resource type="Theme" uid="uid://8ixrlafnx7g8" path="res://assets/themes/default_theme.tres" id="1_7bap3"]
+[ext_resource type="Texture2D" uid="uid://b1onr7dvsihlt" path="res://assets/textures/puzzles/book.png" id="2_w587j"]
+[ext_resource type="Texture2D" uid="uid://djjypr017gin5" path="res://assets/textures/puzzles/story_decal1.png" id="3_v5rj3"]
+[ext_resource type="Texture2D" uid="uid://covlawixcin1l" path="res://assets/textures/UI/arrow_empty.png" id="4_amnlu"]
+[ext_resource type="Texture2D" uid="uid://bt8vehygxvqtr" path="res://assets/textures/puzzles/story_decal3.png" id="4_ub4vp"]
+[ext_resource type="Texture2D" uid="uid://bk28duqcy4fki" path="res://assets/textures/puzzles/story_decal5.png" id="5_md7n0"]
+[ext_resource type="Texture2D" uid="uid://bovwwnj0oy2wv" path="res://assets/textures/UI/arrow_left.png" id="7_5d2ll"]
+[ext_resource type="Texture2D" uid="uid://xs3ybfwc7ghd" path="res://assets/textures/UI/arrow_right.png" id="8_iqoeq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c0dq"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="Book" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fkj7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.101961, 0.941176)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7bap3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2c0dq")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+offset_left = 25.0
+offset_top = 35.0
+offset_right = 1895.0
+offset_bottom = 1045.0
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+offset_right = 1870.0
+offset_bottom = 31.0
+size_flags_vertical = 0
+theme = ExtResource("1_7bap3")
+text = "Press ESC to close"
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+offset_top = 35.0
+offset_right = 1870.0
+offset_bottom = 926.0
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+offset_left = 423.0
+offset_top = 77.0
+offset_right = 1447.0
+offset_bottom = 813.0
+texture = ExtResource("2_w587j")
+
+[node name="Page1" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page1"]
+offset_left = 75.0
+offset_right = 949.0
+offset_bottom = 736.0
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page1/HBoxContainer"]
+offset_top = 93.0
+offset_right = 412.0
+offset_bottom = 643.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Bugge butir daton dewiluhg eldi gaiwe ghukha hihe iasar idar isme kildre mupun osud ouyi ragh sontim supe unos uro xibazihg. Bith daci egle harohg icis itahg izeng nus onte sabe uki xizud xobihg. Addim adek aku aldraim bat bihimase burhocihg cediku centom eddi egle greubozun haye hothuwos idre idrum kibun lairri meddis nikli nyobam pudiku raldri rhirid sooble vuddi vukhibid zimum. Burim cahus catihg ciase dixod ghesi hider horribuhg khupus nyegle ocis ose tirom tor udihg uviku. Agle biarrem buhi ceyos oruhg ciaben dobli enyos gheldim ikid khisme oceg osihges oyeng pokun uble vrotuk wooglidis zidri.
+Arhe bucit dexinus didrohud ekivor grungeud heughag ikheuhg inkeunm liklun moldruzohg ocros sesom uniku vrosohg xilkikihg xonkud xoxe. Aher aide cobeucom didinun ghoklud graklud icum inyihg lovarimase oddim regud vaisanase. Adrid biddad bubithinung elous ghiabek ikhe isek kepum khankim khiasohg kupi moocimim niwum oris oudrin oyeng rebe runti sedrizis thinyi umed voggolomeg xerkad xirhe. Cube dudrak ethihg kenuhum lebli meth nosmotud wiwees osmomung pibisin udes ukin wicos. criddihg cring daigod hihe hiri houos ike isek kebli khixek koose mide ove rhirgheng silesod thele tighi vrooldre xebom. Cube dudrak ethihg kenuhum lebli meth nosmotud wiwees."
+autowrap_mode = 3
+
+[node name="Image1" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page1/HBoxContainer/Label"]
+unique_name_in_owner = true
+modulate = Color(0.635294, 0.635294, 0.635294, 1)
+show_behind_parent = true
+offset_left = 214.0
+offset_top = 399.0
+offset_right = 771.0
+offset_bottom = 971.0
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("3_v5rj3")
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page1/HBoxContainer"]
+offset_left = 462.0
+offset_top = 93.0
+offset_right = 874.0
+offset_bottom = 643.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Adehg arax bat busu curin eoldre iage izis lige nyerghe pok theg tovi vokouhg vrobailises zok. Aeyus babehuses bolum deklahis diddak eghies eusid ezu ghakicihg ghedrem gildri gorhiagim her hoveud ibes ibud khasodos khildi kooganes nadde nokloum obed oddid onus owom ricre sanke uki xesum zeng. Avid bedis beung bibi bubus cenyeng eldehg eson ethem euthek exen gebludis grerghohg hidde kesi khile madar nyekhi obles opum rhoutis se xirrar xoublecim. Airris creyon dong edre eweng ghiange goblen griaxohg irkoum medde mide onyis rhoutis roke siariku tosihg uni vobehim xebis zidahg. Cegi cok criggam croboolohg ebi emer ezi hugin ici ikli iklim keye khizabohg onke othod porghe siceyom usi. Ablihg aheg alde barkanon bemim bialdri burre heggi hisin hudosohg iakli kihipohg olke siwocis soci. Anias avim birurom crikom crithum enyihg inyes ison lokathun mithe nyeblisim rudren soubim suggies udum. Alke alki bek bizid dokhe etim euthek ghetohg ghudi ghuhus greri hoblen icim idri ivimes leblaid lorghinen nyeupas ope penki theble tobe ugli vogoun woudan zudang. Awe daigod ghouxi grekum henti heuku ileng irkoum khaxi matan nyekhi peyi reri rhamuhg ucos weyid xithiabun zubuyis. Bugge butir daton dewiluhg eldi gaiwe ghukha hihe iasar idar isme kildre mupun osud ouyi ragh sontim supe unos."
+autowrap_mode = 3
+
+[node name="Page2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page2"]
+offset_left = 75.0
+offset_right = 949.0
+offset_bottom = 736.0
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page2/HBoxContainer"]
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Adehg arax bat busu curin eoldre iage izis lige nyerghe pok theg tovi vokouhg vrobailises zok. Aeyus babehuses bolum deklahis diddak eghies eusid ezu ghakicihg ghedrem gildri gorhiagim her hoveud ibes ibud khasodos khildi kooganes nadde nokloum obed oddid onus owom ricre sanke uki xesum zeng. Avid bedis beung bibi bubus cenyeng eldehg eson ethem euthek exen gebludis grerghohg hidde kesi khile madar nyekhi obles opum rhoutis se xirrar xoublecim. Airris creyon dong edre eweng ghiange goblen griaxohg irkoum medde mide onyis rhoutis roke siariku tosihg uni vobehim xebis zidahg. Cegi cok criggam croboolohg ebi emer ezi hugin ici ikli iklim keye khizabohg onke othod porghe siceyom usi. Ablihg aheg alde barkanon bemim bialdri burre heggi hisin hudosohg iakli kihipohg olke siwocis soci. Anias avim birurom crikom crithum enyihg inyes ison lokathun mithe nyeblisim rudren soubim suggies udum. Alke alki bek bizid dokhe etim euthek ghetohg ghudi ghuhus greri hoblen icim idri ivimes leblaid lorghinen nyeupas ope penki theble tobe ugli vogoun woudan zudang. Awe daigod ghouxi grekum henti heuku ileng irkoum khaxi matan nyekhi peyi reri rhamuhg ucos weyid xithiabun zubuyis. Bugge butir daton dewiluhg eldi gaiwe ghukha hihe iasar idar isme kildre mupun osud ouyi ragh sontim supe unos."
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page2/HBoxContainer"]
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Addeus binud cabe ebos eyuseg gaireng idek khesohg obias oudrin oya pouiku siceyom voxid. Bentikid ghibos gidas hoblen intoohg mooyin rhidde wivi xirihg xudi. Aiki aisod avim biaye couk criguk criros crithum crixun engi epin babehus iklas ili khamim locoovun lukak nyethun ohangiku oluhg ooleong oude rhingin rohon sidoon sosim sube udihg vrobailis vrocot wooglidis. Arghi catihg ghadrim hazin iayeong iklias khoblis liang nedihg nyozus vriti. Anki bedre xohang bosad daixi dek eciku hera hirghon ikli kebid khisme lidreg orrak ose oukun ourghi simer soble tuyi ubak une xizud xorhod.
+Bentikid bongi booyahg borod cale dor ehihg errim ge iadre ialan ibli imid inkem khike koth kukirod mizim oddim ouvar sanke sosim tapod ungi voblihohg vroton wikhoom xeugem xiggohg. Bubuhg cayom dig dooggag eghi eglod eki eurid euwumeg hirghon iggi ithohg oklus oku peblis rhoutis wag. Alen bonidis dankazod deglis ding ebi ece edu egi eldri epin babehus grigheukim gube hoodrees iasang koth mobi nyutid ohin olos osivor ouyi rheddeguk tovi uguhg verghi xusmihg. Aler alke apek asi bosad diber edi es gidas grebe groble khik lerrim miadries nyildrahg oddam pevi pirri rheyan soke ubiku ucri uzehg vrerkim xinkam xoublecim. Akoom bebi boorkum cale crucrus deupag egi epis ildri inihg khaber khorghiris kunomeg kuze menkan obihg ohin."
+autowrap_mode = 3
+
+[node name="Image2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page2/HBoxContainer/Label2"]
+unique_name_in_owner = true
+modulate = Color(0.635294, 0.635294, 0.635294, 1)
+show_behind_parent = true
+offset_left = 195.0
+offset_top = 12.0
+offset_right = 752.0
+offset_bottom = 584.0
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("4_ub4vp")
+
+[node name="Page3" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page3"]
+offset_left = 75.0
+offset_right = 949.0
+offset_bottom = 736.0
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page3/HBoxContainer"]
+offset_top = 82.0
+offset_right = 412.0
+offset_bottom = 654.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Bogleg duddegom ekhid eunkum hikhabid iayi inkeunm koungim mutor nucin onos thagud toudid voblihohg xiggohg. Ceghud ghi inkeun irghis ixos mugguwod ogher okhim onos sidri verghi. cavin cracat crixi dengiku eghiku gairengm geddunud ghouxi ic inihg ison lukak oluhg roke siceyom tasihg tisem tolke uglisan ukim uthom uwod vrehi. Abos bibli boguk buwibos cricrodod cuzun dontem enyehgeg gilim grerghohg hirghis ilun ithar khobloghin mobi nuhinihg orghis orrim ouhar rug sankeong soghe vrog vrosohg walun xablocud zeuggugim. Bibi biwe cebe codi crir dingaisod dokhem enyehg ilkum khaber kudun ledre nyaeyem osum sagge thoong udri ugod vurhek.
+Ayeud bainte corre cricre hig hirghag inohg khanyihg khesohg lur mithem nyobeg obed oglin onus oole ourghi oze poyohid ravebis sorrikos vrublobod zek. Arrum beude celdocum ciani coyas criddihg crilud ecid eggi ekled gaghim ghelan hibe ibes iddi inye irod ixos kamaihg keci lunun ohom ohos ove rayom rothetus siceyom turhus xewihohg. Arghe biwuhg ciase coklen critisohg dublivid gecarid keng khawin khikle khukibom okhi oluhg otihg oudim rhabe tongahg ukli usim vabin xintim. Abeng athis bipungis cebipim dirron eb ebek heyees irom kesus kunomeg larre leyeucuhg miakod mise nyedi obi rhiblon sabe uye vethin voudri xokhoorim. Aiddis diddathud eku."
+autowrap_mode = 3
+
+[node name="Image3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page3/HBoxContainer/Label"]
+unique_name_in_owner = true
+modulate = Color(0.635294, 0.635294, 0.635294, 1)
+show_behind_parent = true
+offset_left = -6.0
+offset_top = -1.0
+offset_right = 551.0
+offset_bottom = 571.0
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("5_md7n0")
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/TextureRect/Page3/HBoxContainer"]
+offset_left = 462.0
+offset_top = 93.0
+offset_right = 874.0
+offset_bottom = 643.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Burhocihg cebe emahg enyehg erhed iabun ilkies khukibom midorron modrim nudred nyebi nyekhi onti onus peubihg rorkiathis ruhe sadri thegi thuk tosihg ubak ucros udem ukle uro vikilohg. Arghe ayak banocon birghis crasa dubak erus ghecre ghineuthum khiblid lugis mung odohg oudre rhirid rothetus seubon uthom vile wicevor. Ac alkem besoghum bowe cangisid crixim ebum eoleg eyom ghedron ghobi heyud iaku ibes idas ingihg khik luyiku nyabebom nyiaher ohi reklohg rhabe tolke waddi. Bebeng bir bocang cebem dozihg emer ghebucohg hac hikhabid icun ihuhg khaxi movedum nouhom ohun ourghi sadd thablid ungoom usohg uthe walun zik.
+Coyas gaghim geyi gur hedud higud ileng itid khog koowum madd nesihg ouvar relangis rhipi roble thebun tosohg uhar unyim vrohid. Ani bizas ede evi ghucehg sedrizis sungepihg vronk vroxi widrin. Bildrecohg bongi eunkum exi eyom hildingudase kobihid ledd onyi rarrod rocoudud sinuruhg thakheguk ukhian. Bicri cuzun ebuhg ikhad inkeunm kiddukim morghag nihi ouvi ozu tibiton tosihg uthom weur woozucin. Aheg bebi behidus bucod ceusos cras cratar cridrin crimesid dayud dudrak eduhg ghi ghudim graklud ige ildom inkeun koungim mut nyerghe nyizu rhusmek rorghihg sabluyus sucre. Ar bidrihg cooddak dengiku elas geyi.
+"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+offset_top = 930.0
+offset_right = 1870.0
+offset_bottom = 1010.0
+size_flags_vertical = 8
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="LeftButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+offset_left = 837.0
+offset_right = 917.0
+offset_bottom = 80.0
+disabled = true
+texture_normal = ExtResource("7_5d2ll")
+texture_disabled = ExtResource("4_amnlu")
+stretch_mode = 5
+
+[node name="RightButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+offset_left = 952.0
+offset_right = 1032.0
+offset_bottom = 80.0
+texture_normal = ExtResource("8_iqoeq")
+texture_disabled = ExtResource("4_amnlu")
+stretch_mode = 5
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/LeftButton" to="." method="_on_button_pressed" binds= [-1]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/RightButton" to="." method="_on_button_pressed" binds= [1]]

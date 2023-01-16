@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://y1nw8nh1mfpg"]
+
+[ext_resource type="Script" path="res://assets/scripts/puzzles/story/story_gate.gd" id="1_80rct"]
+[ext_resource type="PackedScene" uid="uid://c2j1008w15vwg" path="res://assets/meshes/puzzles/story.scn" id="1_xjwil"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_ku4kn"]
+density = 8.0
+albedo = Color(0.258824, 0.258824, 0.258824, 1)
+emission = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6kqte"]
+size = Vector3(0.1, 3.749, 1.878)
+
+[node name="StoryGate" type="Node3D"]
+script = ExtResource("1_80rct")
+
+[node name="story" parent="." instance=ExtResource("1_xjwil")]
+
+[node name="LeftDecal" type="Decal" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 1.5, 1.82, 1.889)
+extents = Vector3(0.7, 0.273255, 0.7)
+cull_mask = 1048545
+
+[node name="RightDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, 1.82, -1.904)
+extents = Vector3(0.7, 0.294266, 0.7)
+cull_mask = 1048545
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72744, -0.00963271)
+extents = Vector3(0.46734, 1.78513, 2.06531)
+material = SubResource("FogMaterial_ku4kn")
+
+[node name="LeftArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81246, 1.03724)
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftArea"]
+shape = SubResource("BoxShape3D_6kqte")
+
+[node name="RightArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81246, -1.03578)
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightArea"]
+shape = SubResource("BoxShape3D_6kqte")
+
+[connection signal="body_entered" from="LeftArea" to="." method="_entered_side" flags=6 binds= [true]]
+[connection signal="body_entered" from="RightArea" to="." method="_entered_side" flags=6 binds= [false]]

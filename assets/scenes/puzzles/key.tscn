@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2l81vbxd834i"]
+
+[ext_resource type="Script" path="res://assets/scripts/puzzles/key_interactable.gd" id="1_m5lni"]
+[ext_resource type="PackedScene" uid="uid://8cvc2ai6o0b" path="res://assets/meshes/tomb/key.scn" id="1_mluqy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bygtd"]
+size = Vector3(1, 0.622563, 0.262953)
+
+[node name="Key" type="Area3D"]
+collision_layer = 0
+monitoring = false
+script = ExtResource("1_m5lni")
+
+[node name="key" parent="." instance=ExtResource("1_mluqy")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bygtd")

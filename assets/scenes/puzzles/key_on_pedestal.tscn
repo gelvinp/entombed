@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8aft8qt4m15n"]
+
+[ext_resource type="Script" path="res://assets/scripts/puzzles/key_pedestal_interactable.gd" id="1_ghu1a"]
+[ext_resource type="PackedScene" uid="uid://8cvc2ai6o0b" path="res://assets/meshes/tomb/key.scn" id="1_mluqy"]
+[ext_resource type="PackedScene" uid="uid://c2j1008w15vwg" path="res://assets/meshes/puzzles/story.scn" id="3_r82bh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bygtd"]
+size = Vector3(1, 0.622563, 0.262953)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfc7p"]
+size = Vector3(1.4, 4.512, 1.4)
+
+[node name="Key" type="Area3D"]
+collision_layer = 4
+monitoring = false
+script = ExtResource("1_ghu1a")
+
+[node name="key" parent="." instance=ExtResource("1_mluqy")]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, 0, 1.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_bygtd")
+
+[node name="story" parent="." instance=ExtResource("3_r82bh")]
+transform = Transform3D(1, 0, 0, 0, -2.88495e-08, 1, 0, -0.66, -4.37114e-08, 0, -0.945382, 2.79294)
+
+[node name="EncounterArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EncounterArea"]
+shape = SubResource("BoxShape3D_xfc7p")
+
+[connection signal="body_entered" from="EncounterArea" to="." method="_on_encounter_area_body_entered"]
