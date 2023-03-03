@@ -18,7 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var enemy: Node3D = get_tree().get_first_node_in_group("enemy")
 
-@warning_ignore(unused_private_class_variable)
+@warning_ignore("unused_private_class_variable")
 @onready var _speed = walk_speed # Used by the PlayerControlled state
 var _speed_tween: Tween
 

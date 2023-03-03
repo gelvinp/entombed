@@ -10,10 +10,12 @@ var suspected_position: Vector3:
 		return suspected_position
 	set(value):
 		suspected_position = value
-		enemy.agent.target_location = value
+		enemy.agent.target_position = value
 
 
 func enter(msg: Dictionary = {}) -> void:
+	await get_tree().physics_frame
+	
 	if msg.has("suspected"):
 		suspected_position = msg["suspected"]
 	else:
@@ -53,21 +55,20 @@ func target_reached() -> void:
 			return
 
 
-func process(_delta: float) -> void:
-	move_towards_suspected_location()
-	look_for_player()
-
-
 func physics_process(_delta: float) -> void:
+	move_towards_suspected_location()
+	
 	if (
 		(enemy.global_position - player.global_position).length_squared() < 1.5625 and
 		player.state_machine.get_state().name != "Death"
 	):
 		player.state_machine.transition_to("Death")
+	
+	look_for_player()
 
 
 func move_towards_suspected_location() -> void:
-	var next_location = enemy.agent.get_next_location()
+	var next_location = enemy.agent.get_next_path_position()
 	var direction = (next_location - enemy.global_position).normalized()
 	look_direction = look_direction.slerp(direction, 0.05)
 	enemy.look_at(enemy.global_position + look_direction)

@@ -33,7 +33,7 @@ floor_max_angle = 1.0472
 floor_snap_length = 0.2
 safe_margin = 0.01
 script = ExtResource("1_ctj43")
-look_at_gate_cutscene = [ExtResource("2_44dpa"), ExtResource("3_mcjtc")]
+look_at_gate_cutscene = Array[Resource("res://assets/resources/cutscene.gd")]([ExtResource("2_44dpa"), ExtResource("3_mcjtc")])
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -60,6 +60,7 @@ material = SubResource("StandardMaterial3D_vjsmx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 0
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_m8vej")
 

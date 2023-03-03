@@ -27,6 +27,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			text = _text
 	elif event.is_action_pressed("ui_accept"):
 		clicked.emit()
+		audio.play()
 
 
 func _on_focus_entered() -> void:

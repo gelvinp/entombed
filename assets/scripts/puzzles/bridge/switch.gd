@@ -3,7 +3,7 @@ extends Node3D
 
 @export var bridge_paths: Array[NodePath]
 
-@onready var bridges: Array[BridgeRotater] = bridge_paths.map(func(path: NodePath): return get_node(path) as BridgeRotater)
+@onready var bridges := Array(bridge_paths.map(func(path: NodePath): return get_node(path) as BridgeRotater), TYPE_OBJECT, "Node3D", BridgeRotater)
 
 @onready var interactable: SwitchInteractable = $Interactable
 @onready var lever: MeshInstance3D = $SwitchLever

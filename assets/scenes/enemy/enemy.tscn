@@ -519,9 +519,9 @@ script = ExtResource("3_ade3y")
 wait_time = 60.0
 one_shot = true
 
-[node name="Sink" type="State" parent="StateMachine"]
+[node name="Sink" type="State" parent="StateMachine" node_paths=PackedStringArray("haunt_duration_timer")]
 script = ExtResource("4_3mo6d")
-haunt_duration_timer_node_path = NodePath("../Search/HauntDuration")
+haunt_duration_timer = NodePath("../Search/HauntDuration")
 
 [node name="Ambush" type="State" parent="StateMachine"]
 script = ExtResource("4_ilwq3")
@@ -597,6 +597,7 @@ libraries = {
 }
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_1dwpt")

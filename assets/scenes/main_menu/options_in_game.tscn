@@ -12,11 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_dnjr0")
 script = ExtResource("2_fuukn")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -27,39 +28,30 @@ offset_right = 201.0
 offset_bottom = 72.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 505.0
-offset_bottom = 202.0
+layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="OptionsForm" type="GridContainer" parent="PanelContainer/MarginContainer"]
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 477.0
-offset_bottom = 174.0
+layout_mode = 2
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 2
 
 [node name="Label3" type="Label" parent="PanelContainer/MarginContainer/OptionsForm"]
-offset_right = 223.0
-offset_bottom = 31.0
+layout_mode = 2
 text = "VOLUME"
 horizontal_alignment = 2
 
 [node name="Volume" type="HSlider" parent="PanelContainer/MarginContainer/OptionsForm"]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
-offset_left = 253.0
-offset_top = 7.0
-offset_right = 453.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_bottom = NodePath("../Look Sensitivity")
 focus_next = NodePath("../Look Sensitivity")
@@ -69,19 +61,14 @@ scrollable = false
 script = ExtResource("3_iuhoc")
 
 [node name="Label4" type="Label" parent="PanelContainer/MarginContainer/OptionsForm"]
-offset_top = 61.0
-offset_right = 223.0
-offset_bottom = 92.0
+layout_mode = 2
 text = "LOOK SENSITIVITY"
 horizontal_alignment = 2
 
 [node name="Look Sensitivity" type="HSlider" parent="PanelContainer/MarginContainer/OptionsForm"]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
-offset_left = 253.0
-offset_top = 68.0
-offset_right = 453.0
-offset_bottom = 84.0
+layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Volume")
 focus_neighbor_bottom = NodePath("../RichTextLabel2")
@@ -95,10 +82,7 @@ scrollable = false
 script = ExtResource("3_iuhoc")
 
 [node name="RichTextLabel2" parent="PanelContainer/MarginContainer/OptionsForm" instance=ExtResource("2_8klhs")]
-offset_left = 223.0
-offset_top = 122.0
-offset_right = 223.0
-offset_bottom = 150.0
+layout_mode = 2
 size_flags_horizontal = 8
 focus_neighbor_top = NodePath("../Look Sensitivity")
 focus_neighbor_right = NodePath("../RichTextLabel")
@@ -107,10 +91,7 @@ focus_previous = NodePath("../Look Sensitivity")
 text = "Return"
 
 [node name="RichTextLabel" parent="PanelContainer/MarginContainer/OptionsForm" instance=ExtResource("2_8klhs")]
-offset_left = 453.0
-offset_top = 122.0
-offset_right = 453.0
-offset_bottom = 150.0
+layout_mode = 2
 size_flags_horizontal = 8
 focus_neighbor_left = NodePath("../RichTextLabel2")
 focus_neighbor_top = NodePath("../Look Sensitivity")

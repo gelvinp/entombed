@@ -8,7 +8,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-cull_mask = 1048572
+cull_mask = 4
 attributes = SubResource("CameraAttributesPractical_8thpt")
 current = true
 
@@ -18,7 +18,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.33, 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34714, -0.187203, -0.555503)
 layers = 4
-light_cull_mask = 4294967292
+light_cull_mask = 4294966860
 shadow_enabled = true
 omni_range = 10.0
 
@@ -26,6 +26,6 @@ omni_range = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304603, -0.227301, -0.323609)
 layers = 4
 light_energy = 0.335
-light_cull_mask = 4294967292
+light_cull_mask = 4294966860
 shadow_enabled = true
 omni_range = 10.0

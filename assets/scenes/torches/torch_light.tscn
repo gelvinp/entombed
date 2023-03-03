@@ -6,7 +6,7 @@
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047143, 0.405989, 0)
-light_cull_mask = 4294967289
+light_cull_mask = 4294966857
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 0.615572

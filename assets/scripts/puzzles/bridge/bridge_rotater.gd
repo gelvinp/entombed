@@ -4,11 +4,10 @@ extends AnimatableBody3D
 @export var rotation_speed = 3.0
 @export var rotation_target: float = PI / 2.0
 @export var disable_collision_on_rotate: bool = true
-@export_node_path(TorchToggleable) var torch_path
+@export var torch: TorchToggleable
 
 @onready var surface_collision: CollisionShape3D = $SurfaceCollision
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var torch: TorchToggleable = get_node(torch_path) if torch_path else null
 
 @onready var audio: AudioStreamPlayer3D = $Movement
 

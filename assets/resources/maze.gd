@@ -117,7 +117,7 @@ func create_goal() -> void:
 
 
 func get_walls(cell: int) -> Array[D]:
-	var edges = []
+	var edges: Array[D] = []
 	var directions = [D.N, D.S, D.E, D.W]
 	
 	for direction in directions:

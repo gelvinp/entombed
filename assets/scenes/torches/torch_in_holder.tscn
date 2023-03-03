@@ -37,10 +37,12 @@ stream_0/weight = 1.0
 [node name="Torch" instance=ExtResource("1_r28bo")]
 
 [node name="Torch" parent="." index="0"]
+layers = 512
 cast_shadow = 0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0670623, 0.438391, 0)
+layers = 512
 amount = 32
 lifetime = 0.5
 preprocess = 0.5
@@ -51,16 +53,17 @@ draw_pass_1 = SubResource("QuadMesh_jhwv5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047143, 0.405989, 0)
-layers = 5
+layers = 512
 light_energy = 2.0
+light_cull_mask = 4293918797
 shadow_enabled = true
-shadow_bias = 0.1
 distance_fade_enabled = true
 omni_range = 10.0
 script = ExtResource("3_1m0qb")
 
 [node name="Torch001" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(0.993399, 0.11471, 0, -0.11471, 0.993399, 0, 0, 0, 1, 0, 0, 0)
+layers = 512
 cast_shadow = 0
 mesh = ExtResource("4_csic6")
 

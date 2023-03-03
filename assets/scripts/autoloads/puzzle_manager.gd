@@ -17,7 +17,7 @@ var prev_Solution: Array[prev_Ingredient]
 func _prepare_prevention() -> void:
 	var choices = prev_Ingredient.keys()
 	choices.shuffle()
-	choices = choices.map(func(name: String) -> prev_Ingredient: return prev_Ingredient[name])
+	choices = choices.map(func(choice: String) -> prev_Ingredient: return prev_Ingredient[choice])
 	prev_Solution = [choices[0], choices[1], choices[2]]
 	PreventionReady.emit(prev_Solution)
 

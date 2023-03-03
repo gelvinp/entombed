@@ -59,46 +59,46 @@ size = Vector3(8.3728, 4.51179, 3.14366)
 [node name="BridgePuzzle" type="Node3D"]
 script = ExtResource("1_j21xi")
 
-[node name="BridgeNearBody" parent="." instance=ExtResource("2_7jim8")]
+[node name="BridgeNearBody" parent="." node_paths=PackedStringArray("torch") instance=ExtResource("2_7jim8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, -4.15, -2)
-torch_path = NodePath("../Torch1")
+torch = NodePath("../Torch1")
 
 [node name="SurfaceCollision" type="CollisionShape3D" parent="BridgeNearBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99948, 0)
 shape = SubResource("BoxShape3D_813sy")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="BridgeNearBody"]
-navmesh = SubResource("NavigationMesh_lq0fn")
+navigation_mesh = SubResource("NavigationMesh_lq0fn")
 
 [node name="BridgeNear" type="MeshInstance3D" parent="BridgeNearBody/NavigationRegion3D"]
 mesh = ExtResource("3_v78d7")
 skeleton = NodePath("")
 
-[node name="BridgeCenterBody" parent="." instance=ExtResource("2_7jim8")]
+[node name="BridgeCenterBody" parent="." node_paths=PackedStringArray("torch") instance=ExtResource("2_7jim8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -4.15, -2)
-torch_path = NodePath("../Torch2")
+torch = NodePath("../Torch2")
 
 [node name="SurfaceCollision" type="CollisionShape3D" parent="BridgeCenterBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99948, 0)
 shape = SubResource("BoxShape3D_813sy")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="BridgeCenterBody"]
-navmesh = SubResource("NavigationMesh_omysd")
+navigation_mesh = SubResource("NavigationMesh_omysd")
 
 [node name="BridgeCenter" type="MeshInstance3D" parent="BridgeCenterBody/NavigationRegion3D"]
 mesh = ExtResource("4_nvwbq")
 skeleton = NodePath("")
 
-[node name="BridgeFarBody" parent="." instance=ExtResource("2_7jim8")]
+[node name="BridgeFarBody" parent="." node_paths=PackedStringArray("torch") instance=ExtResource("2_7jim8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, -4.15, -2)
-torch_path = NodePath("../Torch3")
+torch = NodePath("../Torch3")
 
 [node name="SurfaceCollision" type="CollisionShape3D" parent="BridgeFarBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99948, 0)
 shape = SubResource("BoxShape3D_813sy")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="BridgeFarBody"]
-navmesh = SubResource("NavigationMesh_egdex")
+navigation_mesh = SubResource("NavigationMesh_egdex")
 
 [node name="BridgeFar" type="MeshInstance3D" parent="BridgeFarBody/NavigationRegion3D"]
 mesh = ExtResource("5_gfxxk")
@@ -113,14 +113,14 @@ disable_collision_on_rotate = false
 shape = SubResource("ConcavePolygonShape3D_d4aal")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="BridgeForkBody"]
-navmesh = SubResource("NavigationMesh_mi1s3")
+navigation_mesh = SubResource("NavigationMesh_mi1s3")
 
 [node name="BridgeFork" type="MeshInstance3D" parent="BridgeForkBody/NavigationRegion3D"]
 mesh = ExtResource("6_yhjdq")
 skeleton = NodePath("")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navmesh = SubResource("NavigationMesh_4wvqv")
+navigation_mesh = SubResource("NavigationMesh_4wvqv")
 
 [node name="BridgeConnector" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -0.25187, -2)
@@ -134,19 +134,19 @@ shape = ExtResource("8_yipxl")
 
 [node name="Switch1" parent="." instance=ExtResource("9_74nvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.922, 0.589, -4.19)
-bridge_paths = [NodePath("../BridgeNearBody"), NodePath("../BridgeCenterBody"), NodePath("../BridgeFarBody")]
+bridge_paths = Array[NodePath]([NodePath("../BridgeNearBody"), NodePath("../BridgeCenterBody"), NodePath("../BridgeFarBody")])
 
 [node name="Switch2" parent="." instance=ExtResource("9_74nvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9224, 0.588732, -4.18982)
-bridge_paths = [NodePath("../BridgeCenterBody"), NodePath("../BridgeForkBody")]
+bridge_paths = Array[NodePath]([NodePath("../BridgeCenterBody"), NodePath("../BridgeForkBody")])
 
 [node name="Switch3" parent="." instance=ExtResource("9_74nvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.922, 0.589, -4.19)
-bridge_paths = [NodePath("../BridgeNearBody"), NodePath("../BridgeFarBody")]
+bridge_paths = Array[NodePath]([NodePath("../BridgeNearBody"), NodePath("../BridgeFarBody")])
 
 [node name="Switch4" parent="." instance=ExtResource("9_74nvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.922, 0.589, -4.19)
-bridge_paths = [NodePath("../BridgeCenterBody"), NodePath("../BridgeFarBody")]
+bridge_paths = Array[NodePath]([NodePath("../BridgeCenterBody"), NodePath("../BridgeFarBody")])
 
 [node name="Torch1" parent="." instance=ExtResource("10_fqexa")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.5, 2.5, -0.265641)

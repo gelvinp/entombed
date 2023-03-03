@@ -24,9 +24,13 @@ size = Vector3(8.2844, 5.819, 5.83245)
 [node name="east_wing" parent="." instance=ExtResource("1_vtrgn")]
 
 [node name="Decal" type="Decal" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, -1, -1, -4.37114e-08, -4.37114e-08, -18.268, 2.69129, -9.05377e-10)
-extents = Vector3(3.8, 1, 1.617)
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, -1, -1, -4.37114e-08, -4.37114e-08, -17.8149, 2.69129, -9.05377e-10)
+layers = 128
+size = Vector3(7.6, 2, 3.234)
 modulate = Color(0.513726, 0.643137, 0.85098, 1)
+upper_fade = 0.0
+lower_fade = 0.0
+cull_mask = 513
 script = ExtResource("3_jqu2y")
 
 [node name="StoryPuzzle" parent="." instance=ExtResource("3_o1o2c")]

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b2gvx7sagdfg2" path="res://assets/scenes/tomb/west_wing.tscn" id="4_3g8os"]
 [ext_resource type="PackedScene" uid="uid://cwijcnnmnvib4" path="res://assets/scenes/tomb/south_wing.tscn" id="4_soqam"]
 [ext_resource type="PackedScene" uid="uid://ddfq2xhsvkxu7" path="res://assets/scenes/tomb/east_wing.tscn" id="5_s7r64"]
-[ext_resource type="ArrayOccluder3D" uid="uid://jhy8cxq8p768" path="res://assets/occluders/tomb.occ" id="6_yye5d"]
 [ext_resource type="PackedScene" uid="uid://c6dxgvljtu8qs" path="res://assets/scenes/tomb/boss_door.tscn" id="7_4muby"]
+[ext_resource type="ArrayOccluder3D" uid="uid://jhy8cxq8p768" path="res://assets/occluders/tomb.occ" id="9_hmbji"]
 [ext_resource type="Script" path="res://assets/scripts/PlayerRegion.gd" id="10_s1mhi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4kvpb"]
@@ -39,8 +39,9 @@ navigation_mesh = ExtResource("2_tj22x")
 [node name="boss_door" parent="." instance=ExtResource("7_4muby")]
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-occluder = ExtResource("6_yye5d")
-bake_mask = 4294967287
+occluder = ExtResource("9_hmbji")
+bake_mask = 4293918785
+bake_simplification_distance = 0.01
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.65739)
@@ -64,7 +65,6 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("10_s1mhi")
-region = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CentralChamberArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.01348, 0)

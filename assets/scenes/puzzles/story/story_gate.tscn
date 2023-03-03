@@ -18,17 +18,20 @@ script = ExtResource("1_80rct")
 
 [node name="LeftDecal" type="Decal" parent="."]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 1.5, 1.82, 1.889)
-extents = Vector3(0.7, 0.273255, 0.7)
-cull_mask = 1048545
+layers = 128
+size = Vector3(1.4, 0.54651, 1.4)
+cull_mask = 513
 
 [node name="RightDecal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, 1.82, -1.904)
-extents = Vector3(0.7, 0.294266, 0.7)
-cull_mask = 1048545
+layers = 128
+size = Vector3(1.4, 0.588532, 1.4)
+cull_mask = 513
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72744, -0.00963271)
-extents = Vector3(0.46734, 1.78513, 2.06531)
+layers = 256
+size = Vector3(0.93468, 3.57026, 4.13062)
 material = SubResource("FogMaterial_ku4kn")
 
 [node name="LeftArea" type="Area3D" parent="."]

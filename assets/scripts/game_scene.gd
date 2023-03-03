@@ -146,7 +146,7 @@ func lerp_colors(a: Array[Color], b: Array[Color], weight: float) -> Array[Color
 
 
 func map_colors(colors: Array[Color]) -> Array[Vector3]:
-	return colors.map(func(c): return Vector3(c.r, c.g, c.b))
+	return Array(colors.map(func(c): return Vector3(c.r, c.g, c.b)), TYPE_VECTOR3, "", null)
 
 
 func _on_options_in_game_close() -> void:

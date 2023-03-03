@@ -1,7 +1,6 @@
 extends EnemyState
 
-@export_node_path(Timer) var haunt_duration_timer_node_path: NodePath
-@onready var haunt_duration_timer: Timer = get_node(haunt_duration_timer_node_path)
+@export var haunt_duration_timer: Timer
 
 func enter(msg: Dictionary = {}) -> void:
 	haunt_duration_timer.stop()

@@ -61,7 +61,7 @@ func _on_options_full_close() -> void:
 
 
 func map_colors(colors: Array[Color]) -> Array[Vector3]:
-	return colors.map(func(c): return Vector3(c.r, c.g, c.b))
+	return Array(colors.map(func(c): return Vector3(c.r, c.g, c.b)), TYPE_VECTOR3, "", null)
 
 
 func receive_message(message: Dictionary) -> void:
